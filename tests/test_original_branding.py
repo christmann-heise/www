@@ -33,3 +33,20 @@ class OriginalBranding(unittest.TestCase):
         for item in evidence:
             image = ROOT / 'christmann-heise-designs/03-Original' / item['file']
             self.assertEqual(hashlib.sha256(image.read_bytes()).hexdigest(), item['sha256'])
+
+    def test_legacy_router_contains_original_portraits_after_navigation(self):
+        import base64, hashlib, json, re
+        evidence = json.loads((ROOT / 'docs/ORIGINALBILDER-2026-10-26.json').read_text(encoding='utf8'))
+        for name in ['01-Ruhig-Salbei.html', '02-Editorial-Bordeaux.html']:
+            page = (ROOT / 'public/christmann-heise-designs' / name).read_text(encoding='utf8')
+            start = page.index('const previewRoutes=') + len('const previewRoutes=')
+            routes, _ = json.JSONDecoder().raw_decode(page[start:])
+            for route, role in [('/', 'Notarinnen'), ('/rechtsanwaeltinnen/', 'Rechtsanwaeltinnen')]:
+                markup = routes[route]['html']
+                self.assertNotIn('portrait-letter', markup)
+                images = re.findall(r'<img src="data:image/jpeg;base64,([^"]+)" alt="([^"]+)"', markup)
+                self.assertEqual(len(images), 2)
+                for data, name in images:
+                    initials = 'SC' if name == 'Silke Christmann' else 'HH'
+                    original = next(x for x in evidence if role + initials + '-e' in x['original'])
+                    self.assertEqual(hashlib.sha256(base64.b64decode(data)).hexdigest(), original['sha256'])

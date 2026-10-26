@@ -2,7 +2,7 @@
 :root{--ink:#777;--muted:#777;--paper:#fff;--warm:#f7f7f7;--line:#eee;--accent:#7a3674;--white:#fff;--serif:Dosis,sans-serif;--sans:Dosis,sans-serif;--color-blue-600:#7a3674;--color-primary:#7a3674;--color-primary-dark:#682e63}
 body{background:#fff!important;color:#777!important;font-family:Dosis,sans-serif!important;font-size:14px;line-height:1.8}
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,button,input,textarea,select,nav,p,a,li,small,strong,.font-alt,.wordmark,.brand,.editorial-title{font-family:Dosis,sans-serif!important;font-style:normal;font-weight:400}
-h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 *,.h1,.h2,.h3,.h4,.h5,.h6{color:#7a3674!important}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{color:#7a3674!important}
 h1 *,h2 *,h3 *,h4 *,h5 *,h6 *{font-family:Dosis,sans-serif!important;font-style:normal!important}
 blockquote,.font-serif,.font-serif *{font-family:'Libre Baskerville',serif!important;font-style:italic!important;font-weight:400!important}
 a{color:rgba(122,54,116,.6)!important}a:hover,a:focus{color:#572652!important}
@@ -18,3 +18,56 @@ input:focus,textarea:focus,select:focus{border-color:#7a3674!important;outline-c
 .hero:before,.hero:after,.site-header:before,.site-header:after{background:#fff!important}
 .editorial-rule{background:#7a3674!important}.quick-panel,.topic,.contact-card{border-color:#eee!important}
 .portrait img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* Typography from docs/archive-original/template.min.css and inline-site-styles.css.
+   The previous override changed font families but left theme sizes, tracking,
+   casing and weights active. Keep the original type rules across layouts. */
+:root body{font-family:Dosis,sans-serif!important;font-size:14px!important;line-height:1.8!important;font-weight:400!important;font-style:normal!important;letter-spacing:normal!important;text-transform:none!important}
+:root body :where(h1,h2,h3,h4,h5,h6,p,a,li,small,strong,b,em,label,summary,address,button,input,textarea,select){font-family:Dosis,sans-serif!important;font-weight:400!important;font-style:normal!important;letter-spacing:inherit!important;text-transform:inherit!important}
+:root body :where(p,li,address,label){font-size:14px!important;line-height:1.8!important}
+:root body :where(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6){line-height:1.4!important;letter-spacing:normal!important;text-transform:none!important}
+:root body h1{font-size:28px!important}
+:root body h2{font-size:24px!important}
+:root body h3{font-size:18px!important}
+:root body h4{font-size:16px!important}
+:root body h5{font-size:14px!important}
+:root body h6{font-size:12px!important}
+:root body :where(h1,h2,h3,h4,h5,h6) *{font-size:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
+:root body :where(strong,b){font-weight:700!important}
+:root body label,:root body label span{font-weight:700!important}
+:root body .font-alt{letter-spacing:3px!important;text-transform:uppercase!important}
+:root body :where(blockquote,.font-serif),:root body :where(blockquote,.font-serif) *{font-family:'Libre Baskerville',serif!important;font-style:italic!important;font-weight:400!important;letter-spacing:1px!important;text-transform:none!important}
+:root body blockquote,:root body blockquote p{font-size:14px!important;line-height:1.8!important}
+:root body .tms-slides blockquote,:root body .tms-slides blockquote p{font-size:15px!important}
+:root body .lead{font-size:20px!important;line-height:1.8!important}
+:root body .team-content p{font-size:12px!important}
+:root body .tms-author{font-size:12px!important}
+:root body .footer .copyright{font-size:10px!important}
+:root body .module-title h2{font-size:18px!important;letter-spacing:10px!important;text-transform:uppercase!important}
+:root body .icon-box-title h5{letter-spacing:6px!important}
+:root body .module-header h1{line-height:1.6!important}
+:root body .module-header h1.h3{font-size:25px!important;letter-spacing:24px!important;text-transform:uppercase!important;margin-right:-24px}
+:root body .module-header h1.h4{font-size:16px!important;letter-spacing:10px!important;text-transform:uppercase!important;margin-right:-10px}
+:root body .btn,:root body .button,:root body .form-control{font-size:11px!important;letter-spacing:2px!important;text-transform:uppercase!important}
+/* Legacy previews have different wrappers; map their text roles to Vortex. */
+:root body .hero h1,:root body .editorial-title,:root body .page-heading h1{font-size:25px!important;line-height:1.6!important;letter-spacing:24px!important;text-transform:uppercase!important}
+:root body .eyebrow{font-size:10px!important;line-height:1.8!important;letter-spacing:3px!important;text-transform:uppercase!important}
+:root body .wordmark strong,:root body .brand a,:root body #topnav .logo,:root body #header h1 a{font-size:25px!important;line-height:1.4!important;font-weight:400!important;letter-spacing:3px!important;text-transform:uppercase!important}
+:root body .nav a,:root body #nav>ul>li>a,:root body .site-header nav a,:root body #topnav .navigation-menu>li>a{font-family:Dosis,sans-serif!important;font-size:10px!important;line-height:1.8!important;font-weight:400!important;letter-spacing:2px!important;text-transform:uppercase!important}
+:root body .site-footer p,:root body .footer p,:root body #footer p{font-size:10px!important;line-height:1.8!important;font-weight:400!important;letter-spacing:3px!important;text-transform:uppercase!important}
+:root body .site-footer a,:root body .footer-links a,:root body .footer-list a,:root body #footer .links a{font-size:14px!important;line-height:1.8!important;font-weight:400!important;letter-spacing:3px!important;text-transform:uppercase!important}
+@media(max-width:992px){
+  :root body .module-header h1.h3,:root body .hero h1,:root body .editorial-title,:root body .page-heading h1{font-size:23px!important;letter-spacing:20px!important}
+  :root body .module-header h1.h3{margin-right:-20px}
+}
+@media(max-width:767px){
+  :root body .module-header h1.h3,:root body .hero h1,:root body .editorial-title,:root body .page-heading h1{font-size:19px!important;letter-spacing:15px!important}
+  :root body .module-header h1.h3{margin-right:-15px}
+}
+@media(max-width:568px){
+  :root body .module-header h1.h3,:root body .hero h1,:root body .editorial-title,:root body .page-heading h1{font-size:17px!important;letter-spacing:12px!important}
+  :root body .module-header h1.h3{margin-right:-12px}
+  :root body .module-header h1.h4{font-size:15px!important;letter-spacing:8px!important;margin-right:-8px}
+  .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .topic,.topic-bottom{min-width:0;overflow-wrap:anywhere}
+}

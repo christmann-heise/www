@@ -1,0 +1,396 @@
+{
+  "date": "2026-10-26",
+  "target": "local Hugo build",
+  "browser": "Microsoft Edge (Chromium)",
+  "baseCommit": "38176d15ffb979a512f8e1940672301f6bc2f93a",
+  "checks": [
+    {
+      "width": 1440,
+      "route": "04-Arcana/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 1440,
+      "route": "04-Arcana/rechtsanwaeltinnen/",
+      "matchedTextElements": 27
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/rechtsanwaeltinnen/",
+      "matchedTextElements": 27
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/rechtsanwaeltinnen/",
+      "matchedTextElements": 27
+    },
+    {
+      "width": 1440,
+      "route": "04-Arcana/notarinnen/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/notarinnen/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/notarinnen/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 1440,
+      "route": "04-Arcana/mediatorin/",
+      "matchedTextElements": 17
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/mediatorin/",
+      "matchedTextElements": 17
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/mediatorin/",
+      "matchedTextElements": 17
+    },
+    {
+      "width": 1440,
+      "route": "04-Arcana/kontakt/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/kontakt/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/kontakt/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 1440,
+      "route": "04-Arcana/impressum/",
+      "matchedTextElements": 15
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/impressum/",
+      "matchedTextElements": 15
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/impressum/",
+      "matchedTextElements": 15
+    },
+    {
+      "width": 1440,
+      "route": "04-Arcana/datenschutz/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 1440,
+      "route": "05-Agnes/datenschutz/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 1440,
+      "route": "06-Blunix/datenschutz/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 1440,
+      "route": "01-Ruhig-Salbei.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "01-Ruhig-Salbei.html#/rechtsanwaeltinnen/",
+      "portraits": 2,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "01-Ruhig-Salbei.html#/kontakt/",
+      "portraits": 0,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "01-Ruhig-Salbei.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "02-Editorial-Bordeaux.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "02-Editorial-Bordeaux.html#/rechtsanwaeltinnen/",
+      "portraits": 2,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "02-Editorial-Bordeaux.html#/kontakt/",
+      "portraits": 0,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 1440,
+      "route": "02-Editorial-Bordeaux.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "25px",
+        "weight": "400",
+        "spacing": "24px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/rechtsanwaeltinnen/",
+      "matchedTextElements": 27
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/rechtsanwaeltinnen/",
+      "matchedTextElements": 27
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/rechtsanwaeltinnen/",
+      "matchedTextElements": 27
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/notarinnen/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/notarinnen/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/notarinnen/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/mediatorin/",
+      "matchedTextElements": 17
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/mediatorin/",
+      "matchedTextElements": 17
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/mediatorin/",
+      "matchedTextElements": 17
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/kontakt/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/kontakt/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/kontakt/",
+      "matchedTextElements": 7
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/impressum/",
+      "matchedTextElements": 15
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/impressum/",
+      "matchedTextElements": 15
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/impressum/",
+      "matchedTextElements": 15
+    },
+    {
+      "width": 390,
+      "route": "04-Arcana/datenschutz/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 390,
+      "route": "05-Agnes/datenschutz/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 390,
+      "route": "06-Blunix/datenschutz/",
+      "matchedTextElements": 3
+    },
+    {
+      "width": 390,
+      "route": "01-Ruhig-Salbei.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "01-Ruhig-Salbei.html#/rechtsanwaeltinnen/",
+      "portraits": 2,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "01-Ruhig-Salbei.html#/kontakt/",
+      "portraits": 0,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "01-Ruhig-Salbei.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "02-Editorial-Bordeaux.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "02-Editorial-Bordeaux.html#/rechtsanwaeltinnen/",
+      "portraits": 2,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "02-Editorial-Bordeaux.html#/kontakt/",
+      "portraits": 0,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    },
+    {
+      "width": 390,
+      "route": "02-Editorial-Bordeaux.html#/",
+      "portraits": 2,
+      "heading": {
+        "size": "17px",
+        "weight": "400",
+        "spacing": "12px",
+        "casing": "uppercase"
+      }
+    }
+  ],
+  "differences": [],
+  "errors": []
+}
