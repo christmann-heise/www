@@ -1,0 +1,2 @@
+# Archivbelege einschließlich Zeilenenden bytegenau erhalten.
+/docs/archive-original/** -text
