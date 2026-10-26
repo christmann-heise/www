@@ -1,0 +1,72 @@
+[
+  {
+    "file": "datenschutz.html.txt",
+    "bytes": 34373,
+    "sha256": "961b2ebff3c78ab71e7fccf4249d9c241ad833f6cbfb0188588873a1f50a8279"
+  },
+  {
+    "file": "extra-styles.css",
+    "bytes": 7013,
+    "sha256": "d32acb2625dbd1397f869964e58d3f58f0fc699be19ca7b507d2087677d94e13"
+  },
+  {
+    "file": "impressum.html.txt",
+    "bytes": 37117,
+    "sha256": "1a67a10bf84c0a6fc1e168f74b6f2fdc2dc397b49b233e04bb5275877e9b1ac0"
+  },
+  {
+    "file": "inline-site-styles.css",
+    "bytes": 2930,
+    "sha256": "960fa0b07b8b795a0464165a3c89dcaf613c60def8de4e550d4de700eb9921c0"
+  },
+  {
+    "file": "kontakt.html.txt",
+    "bytes": 34778,
+    "sha256": "c8cf93ac8ae802b3b5ea4911e7dab993ec59851dc1490a7ecc17351a0a88e09c"
+  },
+  {
+    "file": "mediatorin.html.txt",
+    "bytes": 34579,
+    "sha256": "7c3081bf6c63cbfe8e9aee65008e5f511b553be26c6a7dec0d298706e04604e3"
+  },
+  {
+    "file": "notarinnen.html.txt",
+    "bytes": 36421,
+    "sha256": "8e47fdb7ff797852b348776de1c3644a45670029d37967593a2904e0f064b250"
+  },
+  {
+    "file": "pages-manifest.json",
+    "bytes": 2633,
+    "sha256": "075c7654b1d4018271a4804af3b5d9a64f382cc8953cafdb92de84edcdbde43e"
+  },
+  {
+    "file": "portrait-christmann-index.json",
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  {
+    "file": "portrait-heise-index.json",
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  {
+    "file": "rechtsanwaeltinnen.html.txt",
+    "bytes": 38813,
+    "sha256": "cdfd72f9f3b2a2c38ec44a0263b60a13c43fabffb8cce8fda6104546cd8f97a3"
+  },
+  {
+    "file": "startseite-2026-01-13.html.txt",
+    "bytes": 34918,
+    "sha256": "b8aebf6aec22e2a9d243b8c4c88c716ea62ef3f54463b5044c43e0eef64527e6"
+  },
+  {
+    "file": "template.min.css",
+    "bytes": 42502,
+    "sha256": "dbe5c12e49c9461480ab6f42cc835ab7562d6e101e7d4192ddf998375c8e7373"
+  },
+  {
+    "file": "theme-style.css",
+    "bytes": 2158,
+    "sha256": "163c0165974d940348623c1a4ce127447d6ecc067456fab5de3016ce153af0e3"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "page": "rechtsanwaeltinnen",
+    "requested": "https://web.archive.org/web/20260113002325id_/https://christmann-heise.de/rechtsanwaeltinnen/",
+    "archive": "https://web.archive.org/web/20251215053127id_/https://christmann-heise.de/rechtsanwaeltinnen/",
+    "status": 200,
+    "bytes": 38813,
+    "sha256": "cdfd72f9f3b2a2c38ec44a0263b60a13c43fabffb8cce8fda6104546cd8f97a3",
+    "title": "Rechtsanwältinnen &#8211; &#039;Christmann &amp; Heise&#039;"
+  },
+  {
+    "page": "notarinnen",
+    "requested": "https://web.archive.org/web/20260113002325id_/https://christmann-heise.de/notarinnen/",
+    "archive": "https://web.archive.org/web/20260211004953id_/https://christmann-heise.de/notarinnen/",
+    "status": 200,
+    "bytes": 36421,
+    "sha256": "8e47fdb7ff797852b348776de1c3644a45670029d37967593a2904e0f064b250",
+    "title": "Notarinnen &#8211; &#039;Christmann &amp; Heise&#039;"
+  },
+  {
+    "page": "mediatorin",
+    "requested": "https://web.archive.org/web/20260113002325id_/https://christmann-heise.de/mediatorin/",
+    "archive": "https://web.archive.org/web/20251215045213id_/https://christmann-heise.de/mediatorin/",
+    "status": 200,
+    "bytes": 34579,
+    "sha256": "7c3081bf6c63cbfe8e9aee65008e5f511b553be26c6a7dec0d298706e04604e3",
+    "title": "Mediatorin &#8211; &#039;Christmann &amp; Heise&#039;"
+  },
+  {
+    "page": "kontakt",
+    "requested": "https://web.archive.org/web/20260113002325id_/https://christmann-heise.de/kontakt/",
+    "archive": "https://web.archive.org/web/20251215041120id_/https://christmann-heise.de/kontakt/",
+    "status": 200,
+    "bytes": 34778,
+    "sha256": "c8cf93ac8ae802b3b5ea4911e7dab993ec59851dc1490a7ecc17351a0a88e09c",
+    "title": "Kontakt &#8211; &#039;Christmann &amp; Heise&#039;"
+  },
+  {
+    "page": "impressum",
+    "requested": "https://web.archive.org/web/20260113002325id_/https://christmann-heise.de/impressum/",
+    "archive": "https://web.archive.org/web/20260112223557id_/https://christmann-heise.de/impressum/",
+    "status": 200,
+    "bytes": 37117,
+    "sha256": "1a67a10bf84c0a6fc1e168f74b6f2fdc2dc397b49b233e04bb5275877e9b1ac0",
+    "title": "Impressum &#8211; &#039;Christmann &amp; Heise&#039;"
+  },
+  {
+    "page": "datenschutz",
+    "requested": "https://web.archive.org/web/20260113002325id_/https://christmann-heise.de/datenschutz/",
+    "archive": "https://web.archive.org/web/20260112223819id_/https://christmann-heise.de/datenschutz/",
+    "status": 200,
+    "bytes": 34373,
+    "sha256": "961b2ebff3c78ab71e7fccf4249d9c241ad833f6cbfb0188588873a1f50a8279",
+    "title": "Datenschutz &#8211; &#039;Christmann &amp; Heise&#039;"
+  }
+]
