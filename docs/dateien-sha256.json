@@ -1,0 +1,317 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 2240,
+    "sha256": "501c15fe106623c899c5510d5a58ad9cbab166f129391a825394051beb09931c"
+  },
+  {
+    "path": "christmann-heise/.github/workflows/pages-preview.yml",
+    "bytes": 726,
+    "sha256": "195d18c42ef65abc9afbff7b2445ea5a4bf04c48b1ebde5a491a4ed431796fc4"
+  },
+  {
+    "path": "christmann-heise/.gitignore",
+    "bytes": 23,
+    "sha256": "9addeec56619685bab330ff2184db9f205a1b4628f551ededcb97800b269ca3e"
+  },
+  {
+    "path": "christmann-heise/Christmann-Heise-Vorschau.html",
+    "bytes": 50740,
+    "sha256": "b90ad109ee794a5137bd17856cc8b64ac039420a319d740061ad95c047e1a4c8"
+  },
+  {
+    "path": "christmann-heise/README.md",
+    "bytes": 3416,
+    "sha256": "5c2a4d2bb7cd7b99c1c84baaf8264cef32c1479677b6186321b301d821097d9f"
+  },
+  {
+    "path": "christmann-heise/assets/architecture.svg",
+    "bytes": 715,
+    "sha256": "879272ced93625741b683b3b75a3315fc7a440270fc3bc8f29a2e1208906c69d"
+  },
+  {
+    "path": "christmann-heise/assets/site.css",
+    "bytes": 11567,
+    "sha256": "369361165739a4cf38123bee54f526600a76a290ddaf265766c845c361a3ceaa"
+  },
+  {
+    "path": "christmann-heise/assets/site.js",
+    "bytes": 820,
+    "sha256": "6d7b21ff3f826811c52b2ff8f667f5a268b5a1aba3fddd303c4c3c10c42a65ed"
+  },
+  {
+    "path": "christmann-heise/docs/PRUEFUNG.md",
+    "bytes": 946,
+    "sha256": "78a9d20f2c320d5026520c30f8b52097ef28b0ea32b56ba6d98b8e18c6b6d7c6"
+  },
+  {
+    "path": "christmann-heise/docs/UEBERGABE.md",
+    "bytes": 4397,
+    "sha256": "6ad619d01ec267d35eb454c00f490492cf135731eaab84032170a6d912780308"
+  },
+  {
+    "path": "christmann-heise/scripts/build.py",
+    "bytes": 24597,
+    "sha256": "55253f385ff938e9ef9b02944a6bd80ce4eb26d7e9fe971bf3b168d90060025f"
+  },
+  {
+    "path": "christmann-heise/scripts/fetch-originals.py",
+    "bytes": 2969,
+    "sha256": "24fdd53fbe11a482898490650adb434bed3ab68109099c303679c1e58af483ae"
+  },
+  {
+    "path": "christmann-heise/site.json",
+    "bytes": 234,
+    "sha256": "e77390b2c25811d88c3e26fe43d2bc7a8653627c66493c39040e30b12745571a"
+  },
+  {
+    "path": "christmann-heise/sources/inventar.json",
+    "bytes": 1208,
+    "sha256": "c9e21e82df4df9f467504175d85516172e22d32d0931708ab4f8ca68508f7fee"
+  },
+  {
+    "path": "christmann-heise-designs/01-Ruhig-Salbei.html",
+    "bytes": 50740,
+    "sha256": "b90ad109ee794a5137bd17856cc8b64ac039420a319d740061ad95c047e1a4c8"
+  },
+  {
+    "path": "christmann-heise-designs/02-Editorial-Bordeaux.html",
+    "bytes": 54363,
+    "sha256": "ab0612c9aa0222da367dd0e2056deb9787f0244b435c002873e87de540abc319"
+  },
+  {
+    "path": "christmann-heise-designs/03-Klar-Kobaltblau.html",
+    "bytes": 58442,
+    "sha256": "31847cbb5907bb228fe2b9482f8ab13fcbabc9cb99f081ff3d7d4b4e0a697831"
+  },
+  {
+    "path": "christmann-heise-designs/Christmann-Heise-Designvergleich.html",
+    "bytes": 565531,
+    "sha256": "b08148d6e446b0f3690242da38277426c06296132ff8226a83bfe5ff176f15da"
+  },
+  {
+    "path": "christmann-heise-designs/build-comparison.py",
+    "bytes": 11625,
+    "sha256": "5766a4c5f67aba37bbf35ae333047a15931a80dd3a2e1ec01601f2fc4089ca97"
+  },
+  {
+    "path": "christmann-heise-designs/create-variants.py",
+    "bytes": 6060,
+    "sha256": "0365a57f88e71290c7790252ec9bff8080b835082d4866a39cb359e5f55283ee"
+  },
+  {
+    "path": "christmann-heise-designs/digital.css",
+    "bytes": 8186,
+    "sha256": "1d6a4fb34dc5f78a4980c6d36ca84743ba795d9aaca96f9334ef3003ea793513"
+  },
+  {
+    "path": "christmann-heise-designs/editorial.css",
+    "bytes": 6041,
+    "sha256": "eff50e1bb777af0ae80c3a6044f0fb62b31b7b2d09d31efcbace34ea71a75995"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/.github/workflows/pages-preview.yml",
+    "bytes": 726,
+    "sha256": "195d18c42ef65abc9afbff7b2445ea5a4bf04c48b1ebde5a491a4ed431796fc4"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/.gitignore",
+    "bytes": 23,
+    "sha256": "9addeec56619685bab330ff2184db9f205a1b4628f551ededcb97800b269ca3e"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/Christmann-Heise-Vorschau.html",
+    "bytes": 50740,
+    "sha256": "b90ad109ee794a5137bd17856cc8b64ac039420a319d740061ad95c047e1a4c8"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/README.md",
+    "bytes": 3416,
+    "sha256": "5c2a4d2bb7cd7b99c1c84baaf8264cef32c1479677b6186321b301d821097d9f"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/assets/architecture.svg",
+    "bytes": 715,
+    "sha256": "879272ced93625741b683b3b75a3315fc7a440270fc3bc8f29a2e1208906c69d"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/assets/site.css",
+    "bytes": 11567,
+    "sha256": "369361165739a4cf38123bee54f526600a76a290ddaf265766c845c361a3ceaa"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/assets/site.js",
+    "bytes": 820,
+    "sha256": "6d7b21ff3f826811c52b2ff8f667f5a268b5a1aba3fddd303c4c3c10c42a65ed"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/docs/PRUEFUNG.md",
+    "bytes": 946,
+    "sha256": "78a9d20f2c320d5026520c30f8b52097ef28b0ea32b56ba6d98b8e18c6b6d7c6"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/docs/UEBERGABE.md",
+    "bytes": 4397,
+    "sha256": "6ad619d01ec267d35eb454c00f490492cf135731eaab84032170a6d912780308"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/scripts/build.py",
+    "bytes": 24597,
+    "sha256": "55253f385ff938e9ef9b02944a6bd80ce4eb26d7e9fe971bf3b168d90060025f"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/scripts/fetch-originals.py",
+    "bytes": 2969,
+    "sha256": "24fdd53fbe11a482898490650adb434bed3ab68109099c303679c1e58af483ae"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/site.json",
+    "bytes": 234,
+    "sha256": "e77390b2c25811d88c3e26fe43d2bc7a8653627c66493c39040e30b12745571a"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/01-Ruhig-Salbei/sources/inventar.json",
+    "bytes": 1208,
+    "sha256": "c9e21e82df4df9f467504175d85516172e22d32d0931708ab4f8ca68508f7fee"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/.github/workflows/pages-preview.yml",
+    "bytes": 726,
+    "sha256": "195d18c42ef65abc9afbff7b2445ea5a4bf04c48b1ebde5a491a4ed431796fc4"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/.gitignore",
+    "bytes": 23,
+    "sha256": "9addeec56619685bab330ff2184db9f205a1b4628f551ededcb97800b269ca3e"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/Christmann-Heise-Vorschau.html",
+    "bytes": 54363,
+    "sha256": "ab0612c9aa0222da367dd0e2056deb9787f0244b435c002873e87de540abc319"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/README.md",
+    "bytes": 3592,
+    "sha256": "2d0d8ae128a5b72986a30f3721cdaf0e065864cbeff92a79edeb77d11b95af6b"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/assets/architecture.svg",
+    "bytes": 715,
+    "sha256": "879272ced93625741b683b3b75a3315fc7a440270fc3bc8f29a2e1208906c69d"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/assets/site.css",
+    "bytes": 17609,
+    "sha256": "cd55b7f605c7d5bfe0d4ce86e093b38a0f535d47bc05f310390ec9f6bdf3cbb9"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/assets/site.js",
+    "bytes": 820,
+    "sha256": "6d7b21ff3f826811c52b2ff8f667f5a268b5a1aba3fddd303c4c3c10c42a65ed"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/docs/PRUEFUNG.md",
+    "bytes": 946,
+    "sha256": "78a9d20f2c320d5026520c30f8b52097ef28b0ea32b56ba6d98b8e18c6b6d7c6"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/docs/UEBERGABE.md",
+    "bytes": 4397,
+    "sha256": "6ad619d01ec267d35eb454c00f490492cf135731eaab84032170a6d912780308"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/scripts/build.py",
+    "bytes": 25693,
+    "sha256": "987e2ddb22d6efccfdd53b819a8525179624b7da56834e8963b170075cc305c9"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/scripts/fetch-originals.py",
+    "bytes": 2969,
+    "sha256": "24fdd53fbe11a482898490650adb434bed3ab68109099c303679c1e58af483ae"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/site.json",
+    "bytes": 234,
+    "sha256": "e77390b2c25811d88c3e26fe43d2bc7a8653627c66493c39040e30b12745571a"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/02-Editorial-Bordeaux/sources/inventar.json",
+    "bytes": 1208,
+    "sha256": "c9e21e82df4df9f467504175d85516172e22d32d0931708ab4f8ca68508f7fee"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/.github/workflows/pages-preview.yml",
+    "bytes": 726,
+    "sha256": "195d18c42ef65abc9afbff7b2445ea5a4bf04c48b1ebde5a491a4ed431796fc4"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/.gitignore",
+    "bytes": 23,
+    "sha256": "9addeec56619685bab330ff2184db9f205a1b4628f551ededcb97800b269ca3e"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/Christmann-Heise-Vorschau.html",
+    "bytes": 58442,
+    "sha256": "31847cbb5907bb228fe2b9482f8ab13fcbabc9cb99f081ff3d7d4b4e0a697831"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/README.md",
+    "bytes": 3589,
+    "sha256": "5b2d00fc9359b5d7c33241b8f3a4bcb75d4762627501d3822f3cc27132caa545"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/assets/architecture.svg",
+    "bytes": 715,
+    "sha256": "879272ced93625741b683b3b75a3315fc7a440270fc3bc8f29a2e1208906c69d"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/assets/site.css",
+    "bytes": 19754,
+    "sha256": "b8b267c171a4072a553b8308538744303e1c69ae9f7169afd6e0f0b8bccce06e"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/assets/site.js",
+    "bytes": 820,
+    "sha256": "6d7b21ff3f826811c52b2ff8f667f5a268b5a1aba3fddd303c4c3c10c42a65ed"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/docs/PRUEFUNG.md",
+    "bytes": 946,
+    "sha256": "78a9d20f2c320d5026520c30f8b52097ef28b0ea32b56ba6d98b8e18c6b6d7c6"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/docs/UEBERGABE.md",
+    "bytes": 4397,
+    "sha256": "6ad619d01ec267d35eb454c00f490492cf135731eaab84032170a6d912780308"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/scripts/build.py",
+    "bytes": 26605,
+    "sha256": "b4c1edadba1eff2f1bd417dadf639020f4ec011a93834c5949c8031423bd2b55"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/scripts/fetch-originals.py",
+    "bytes": 2969,
+    "sha256": "24fdd53fbe11a482898490650adb434bed3ab68109099c303679c1e58af483ae"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/site.json",
+    "bytes": 234,
+    "sha256": "e77390b2c25811d88c3e26fe43d2bc7a8653627c66493c39040e30b12745571a"
+  },
+  {
+    "path": "christmann-heise-designs/projekte/03-Klar-Kobaltblau/sources/inventar.json",
+    "bytes": 1208,
+    "sha256": "c9e21e82df4df9f467504175d85516172e22d32d0931708ab4f8ca68508f7fee"
+  },
+  {
+    "path": "christmann-heise-designs/varianten.json",
+    "bytes": 1035,
+    "sha256": "d7e5fc91d79ad2c9d7ba88c67c60a74826e0e9f4e09cad4c8cc2e91c591507b6"
+  },
+  {
+    "path": "docs/UEBERGABE-2026-10-26.md",
+    "bytes": 8328,
+    "sha256": "3dab84e8344a785fd2089b9a1ff952221d8bcf1be16c185902c8a5a99c4e5f88"
+  }
+]

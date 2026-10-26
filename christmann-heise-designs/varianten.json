@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-24",
+  "original_sha256": "b90ad109ee794a5137bd17856cc8b64ac039420a319d740061ad95c047e1a4c8",
+  "variants": [
+    {
+      "file": "01-Ruhig-Salbei.html",
+      "name": "Ruhig · Salbei",
+      "description": "Bestehender Entwurf, unverändert. Serifenschrift, Architekturillustration und Anliegenraster."
+    },
+    {
+      "file": "02-Editorial-Bordeaux.html",
+      "name": "Editorial · Bordeaux",
+      "description": "Große Serifentypografie, zentrierter Einstieg, Partnerinnen vor den Anliegen, listenartige Themenführung."
+    },
+    {
+      "file": "03-Klar-Kobaltblau.html",
+      "name": "Klar · Kobaltblau",
+      "description": "Serifenlose Typografie, blauer Einstieg, direkter Anliegenzugang und klar gegliederte Karten."
+    }
+  ],
+  "limitations": [
+    "Originalbilder und Logo noch nicht verfügbar",
+    "Farben sind Designvorschläge, nicht verifizierte Markenfarben",
+    "Rechtstexte und Kontaktdaten vor Veröffentlichung prüfen",
+    "Keine Veröffentlichung oder Domainänderung"
+  ]
+}
