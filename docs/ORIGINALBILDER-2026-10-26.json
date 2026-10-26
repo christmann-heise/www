@@ -1,0 +1,32 @@
+[
+  {
+    "original": "https://christmann-heise.de/wp-content/uploads/2018/08/RechtsanwaeltinnenSC-e1534960103594.jpg",
+    "file": "assets/ced0eb6d02d7-RechtsanwaeltinnenSC-e1534960103594.jpg",
+    "sha256": "94941e6b738a507c8f7490620c98a31da47887dc2a24cf70692689d34c295726",
+    "bytes": 109799
+  },
+  {
+    "original": "https://christmann-heise.de/wp-content/uploads/2018/08/RechtsanwaeltinnenHH-e1534960135173.jpg",
+    "file": "assets/f551d210a04a-RechtsanwaeltinnenHH-e1534960135173.jpg",
+    "sha256": "897f9e68547899bc9594bb9fa957f7a5f11b7a47898ab337de58a748d1f1b0e6",
+    "bytes": 121207
+  },
+  {
+    "original": "https://christmann-heise.de/wp-content/uploads/2018/08/NotarinnenSC-e1534960144126.jpg",
+    "file": "assets/b6eff831db56-NotarinnenSC-e1534960144126.jpg",
+    "sha256": "3b4181975bcb84b3055096434d60cec59d65691685c441f2c458cc62f6defb16",
+    "bytes": 93356
+  },
+  {
+    "original": "https://christmann-heise.de/wp-content/uploads/2018/08/Mediatorin-e1534960175989.jpg",
+    "file": "assets/6ae2e9226c79-Mediatorin-e1534960175989.jpg",
+    "sha256": "0cf430326e08f4be2932d763dbd17cbedccaf8eee9cfed83c0d002be162655f7",
+    "bytes": 100266
+  },
+  {
+    "original": "https://christmann-heise.de/wp-content/uploads/2018/08/NotarinnenHH-e1534960164368.jpg",
+    "file": "assets/bb3f30378391-NotarinnenHH-e1534960164368.jpg",
+    "sha256": "58313fdf9eab131b391714ecd510596986e20800189208ca39e9172a8d2c4327",
+    "bytes": 104405
+  }
+]

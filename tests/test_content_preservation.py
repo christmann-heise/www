@@ -17,7 +17,7 @@ class OriginalContentGuard(unittest.TestCase):
             self.assertEqual(len(guard.verify()), 28)
 
     def test_changed_legal_name_is_rejected(self):
-        target = ROOT / "public/christmann-heise-designs/05-Arcana/impressum/index.html"
+        target = ROOT / "public/christmann-heise-designs/04-Arcana/impressum/index.html"
         before = target.read_bytes()
         try:
             text = before.decode("utf-8")

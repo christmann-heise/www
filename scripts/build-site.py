@@ -20,19 +20,21 @@ def main():
         raise SystemExit("Destination must be a separate directory inside the repository")
     destination.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, "scripts/build-original.py"], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, "scripts/apply-branding.py"], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, "christmann-heise-designs/build-comparison.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "scripts/prepare-hugo.py"], cwd=ROOT, check=True)
     shutil.copyfile(ROOT / "index.html", destination / "index.html")
     previews = destination / "christmann-heise-designs"
     previews.mkdir(exist_ok=True)
-    for name in ("01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html", "03-Klar-Kobaltblau.html", "Christmann-Heise-Designvergleich.html"):
+    for name in ("01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html", "Christmann-Heise-Designvergleich.html"):
         shutil.copyfile(ROOT / "christmann-heise-designs" / name, previews / name)
-    for site, route in (("original", "04-Original"), ("arcana", "05-Arcana"), ("agnes", "06-Agnes"), ("blunix", "07-Blunix")):
+    for site, route in (("original", "03-Original"), ("arcana", "04-Arcana"), ("agnes", "05-Agnes"), ("blunix", "06-Blunix")):
         subprocess.run([args.hugo, "--source", str(ROOT / "hugo" / site),
                         "--destination", str(previews / route),
                         "--baseURL", args.base_url.rstrip("/") + "/christmann-heise-designs/" + route + "/"],
                        cwd=ROOT, check=True)
     (destination / ".nojekyll").write_text("", encoding="utf-8")
-    print("Built seven previews; variants 4–7 rendered by Hugo")
+    print("Built six previews; variants 3–6 rendered by Hugo")
 
 
 if __name__ == "__main__":

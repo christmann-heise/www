@@ -2,12 +2,13 @@
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "christmann-heise-designs/04-Original"
-VARIANTS = [("original", "04-Original", None), ("arcana", "05-Arcana", "arcana"),
-            ("agnes", "06-Agnes", "agnes"), ("blunix", "07-Blunix", "blunix")]
+SOURCE = ROOT / "christmann-heise-designs/03-Original"
+VARIANTS = [("original", "03-Original", None), ("arcana", "04-Arcana", "arcana"),
+            ("agnes", "05-Agnes", "agnes"), ("blunix", "06-Blunix", "blunix")]
 PAGES = ["", "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz"]
 LABELS = ["Startseite", "Rechtsanwältinnen", "Notarinnen", "Mediatorin", "Kontakt"]
 
@@ -16,6 +17,9 @@ def prepare():
     for site, route, theme in VARIANTS:
         directory = ROOT / "hugo" / site
         directory.mkdir(parents=True, exist_ok=True)
+        static = directory / "static"
+        static.mkdir(exist_ok=True)
+        shutil.copyfile(ROOT / 'shared/original-brand.css', static / 'original-brand.css')
         config = "baseURL = 'https://christmann-heise.github.io/www/christmann-heise-designs/" + route + "/'\n"
         config += "title = 'Christmann & Heise'\nlocale = 'de'\ndefaultContentLanguage = 'de'\n"
         config += "disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', 'section', '404']\n"
@@ -25,7 +29,7 @@ def prepare():
         config += "[params]\nshow_post_dates = false\n"
         config += "[params.footer.contact_form]\nenabled = false\n"
         config += "[[module.mounts]]\nsource = 'static'\ntarget = 'static'\n"
-        config += "[[module.mounts]]\nsource = '../../christmann-heise-designs/04-Original/assets'\ntarget = 'static/assets'\n"
+        config += "[[module.mounts]]\nsource = '../../christmann-heise-designs/03-Original/assets'\ntarget = 'static/assets'\n"
         for weight, (slug, label) in enumerate(zip(PAGES, LABELS)):
             config += f"[[menus.main]]\nname = '{label}'\npageRef = '/{slug}'\nweight = {weight + 1}\n"
         (directory / "hugo.toml").write_text(config, encoding="utf-8", newline="\n")

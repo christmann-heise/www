@@ -6,14 +6,16 @@ Vollständige Übergabe der Website-Arbeit aus der Unterhaltung vom 24.–26. Ok
 
 ## Aktueller Hugo-Stand
 
-Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten sieben Varianten. Die drei ursprünglichen HTML-Entwürfe bleiben erhalten. Neu sind:
+Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten sechs neu nummerierte Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
 
-4. **Original / Archiv**: Hugo-Nachbau mit dem gesicherten Vortex-Design.
-5. **Hugo Arcana**: angefragtes Theme mit Originalinhalten.
-6. **Hugo Agnes**: angefragtes Theme mit Originalinhalten.
-7. **Hugo Blunix**: angefragtes Theme mit Originalinhalten.
+1. **Ruhig**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
+2. **Editorial**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
+3. **Original / Archiv**: Hugo-Nachbau mit dem gesicherten Vortex-Design.
+4. **Hugo Arcana**: angefragtes Theme mit Originalinhalten.
+5. **Hugo Agnes**: angefragtes Theme mit Originalinhalten.
+6. **Hugo Blunix**: angefragtes Theme mit Originalinhalten.
 
-Jede der vier neuen Hugo-Varianten enthält die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Es gibt keine neuen Leistungsseiten oder erfundenen Aussagen. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
+Alle sechs verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Jede der vier Hugo-Varianten enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
 
 Mit Hugo 0.168.0, Dart Sass 1.106.1 und Python 3 auf dem Suchpfad:
 
@@ -32,7 +34,7 @@ Details und bekannte Archivlücken: [Hugo-Übergabe und Sicherheitsprüfung](doc
 
 1. **Ruhig / Salbei** – ursprünglicher Entwurf unverändert.
 2. **Editorial / Bordeaux** – Serifentypografie, Partnerinnen vor den Anliegen, Themenliste.
-3. **Klar / Kobaltblau** – serifenlose Typografie, direkter Anliegenzugang, Karten.
+Der damals dritte Vorschlag **Klar / Kobaltblau** wurde inzwischen ausdrücklich gelöscht.
 
 Vergleichsdatei: [Christmann-Heise-Designvergleich.html](christmann-heise-designs/Christmann-Heise-Designvergleich.html). Sie enthält alle drei durchklickbaren Varianten und ein eingebettetes Quellarchiv. Eine GitHub-Dateiansicht führt HTML nicht als Website aus; für die Vorschau die Datei lokal öffnen oder eine getrennte Vorschau bereitstellen.
 

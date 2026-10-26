@@ -2,6 +2,8 @@
 
 Recherche: 26.10.2026. Ziel: belegte Originalgestaltung sichern und die bestehende Website möglichst genau übernehmen. Keine neue inhaltliche Konzeption.
 
+Aktualisierung: In einer erhaltenen früheren Website-Sicherung wurden inzwischen die fünf Originalporträts gefunden und unverändert übernommen. Belege: `ORIGINALBILDER-2026-10-26.json`. Es sind keine Screenshot-Ersatzbilder erforderlich. Die nachfolgend dokumentierten ersten fehlgeschlagenen Archivabrufe bleiben als Recherchehistorie erhalten. Aktueller Umsetzungsstand: `HUGO-VARIANTEN-2026-10-26.md`.
+
 ## Maßgebliche Nutzeranweisung
 
 Keine erfundenen Inhalte, keine neuen Seiten oder Ideen. Firmenname, Impressum und Haftungsangaben bleiben unverändert. Quellenkonflikte werden dokumentiert und nicht eigenständig entschieden. Die bisherigen drei Varianten sind Gestaltungsvorschauen und keine freigegebene Originalübernahme.

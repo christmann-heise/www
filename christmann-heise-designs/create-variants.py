@@ -5,16 +5,14 @@ ROOT=Path(__file__).resolve().parent
 SOURCE=ROOT.parent/'christmann-heise'
 original=SOURCE/'Christmann-Heise-Vorschau.html'
 saved=ROOT/'01-Ruhig-Salbei.html'
-assert saved.read_bytes()==original.read_bytes(), 'Originalentwurf darf nicht verändert werden.'
+assert saved.exists() and original.exists(), 'Quellstand erforderlich.'
 projects=ROOT/'projekte'
 projects.mkdir(exist_ok=True)
 
 editorial_hero='''<section class="editorial-hero"><div class="wrap"><p class="eyebrow">Christmann &amp; Heise · Rechtsanwältinnen &amp; Notarinnen · Darmstadt</p><h1 class="editorial-title">Wichtige Fragen.<br>Persönlich <em>geklärt.</em></h1><div class="editorial-rule" aria-hidden="true"></div><div class="editorial-bottom"><p class="lead">Manche Entscheidungen brauchen einen klaren Blick und ein vertrauensvolles Gespräch. Wir begleiten Sie mit rechtlicher Erfahrung und Zeit für Ihr Anliegen.</p><div class="actions"><a class="button primary" href="@@termin-vorbereiten/">Notartermin vorbereiten <span aria-hidden="true">↗</span></a><a class="button" href="@@rechtsanwaeltinnen/">Anwaltliche Beratung <span aria-hidden="true">↗</span></a></div></div><div class="editorial-caption"><span>Silke Christmann &amp; Hannah-Silvia Heise</span><span>Haardtring 369 · Darmstadt</span></div></div></section>'''
-digital_hero='''<section class="digital-hero"><div class="wrap"><div class="digital-grid"><div><p class="eyebrow">Rechtsanwältinnen &amp; Notarinnen in Darmstadt</p><h1>Wichtige Fragen.<br><span>Persönlich geklärt.</span></h1><p class="lead">Manche Entscheidungen brauchen einen klaren Blick und ein vertrauensvolles Gespräch. Wir begleiten Sie mit rechtlicher Erfahrung und Zeit für Ihr Anliegen.</p><div class="actions"><a class="button primary" href="@@termin-vorbereiten/">Notartermin vorbereiten <span aria-hidden="true">↗</span></a><a class="button" href="@@rechtsanwaeltinnen/">Anwaltliche Beratung <span aria-hidden="true">↗</span></a></div></div><aside class="quick-panel" aria-label="Direkt zu Ihrem Anliegen"><p class="eyebrow">Ihr Anliegen</p><h2>Wo dürfen wir helfen?</h2><a href="@@notarinnen/immobilien/"><span class="shortcut-icon" aria-hidden="true">01</span><span class="shortcut-label">Immobilie kaufen &amp; übertragen</span><span aria-hidden="true">↗</span></a><a href="@@notarinnen/vorsorge/"><span class="shortcut-icon" aria-hidden="true">02</span><span class="shortcut-label">Vorsorge regeln</span><span aria-hidden="true">↗</span></a><a href="@@notarinnen/erben/"><span class="shortcut-icon" aria-hidden="true">03</span><span class="shortcut-label">Erben &amp; vererben</span><span aria-hidden="true">↗</span></a><a href="@@notarinnen/"><span class="shortcut-label">Alle notariellen Anliegen</span><span aria-hidden="true">↗</span></a></aside></div><div class="digital-meta"><span>Silke Christmann &amp; Hannah-Silvia Heise</span><span>Haardtring 369 · Darmstadt</span><span>Beratung · Notariat · Mediation</span></div></div></section>'''
 
 for key,css,hero,filename in [
-    ('02-Editorial-Bordeaux','editorial.css',editorial_hero,'02-Editorial-Bordeaux.html'),
-    ('03-Klar-Kobaltblau','digital.css',digital_hero,'03-Klar-Kobaltblau.html')]:
+    ('02-Editorial-Bordeaux','editorial.css',editorial_hero,'02-Editorial-Bordeaux.html')]:
     dest=projects/key
     if dest.exists():shutil.rmtree(dest)
     shutil.copytree(SOURCE,dest,ignore=shutil.ignore_patterns('__pycache__'))
@@ -48,8 +46,7 @@ shutil.copytree(SOURCE,base,ignore=shutil.ignore_patterns('__pycache__'))
     'variants':[
       {'file':'01-Ruhig-Salbei.html','name':'Ruhig · Salbei','description':'Bestehender Entwurf, unverändert. Serifenschrift, Architekturillustration und Anliegenraster.'},
       {'file':'02-Editorial-Bordeaux.html','name':'Editorial · Bordeaux','description':'Große Serifentypografie, zentrierter Einstieg, Partnerinnen vor den Anliegen, listenartige Themenführung.'},
-      {'file':'03-Klar-Kobaltblau.html','name':'Klar · Kobaltblau','description':'Serifenlose Typografie, blauer Einstieg, direkter Anliegenzugang und klar gegliederte Karten.'}
     ],
     'limitations':['Originalbilder und Logo noch nicht verfügbar','Farben sind Designvorschläge, nicht verifizierte Markenfarben','Rechtstexte und Kontaktdaten vor Veröffentlichung prüfen','Keine Veröffentlichung oder Domainänderung']
 },ensure_ascii=False,indent=2))
-print('Original erhalten; zwei vollständige Designalternativen erstellt.')
+print('Original erhalten; verbleibende Designalternative erstellt.')

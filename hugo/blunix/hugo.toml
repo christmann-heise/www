@@ -1,4 +1,4 @@
-baseURL = 'https://christmann-heise.github.io/www/christmann-heise-designs/07-Blunix/'
+baseURL = 'https://christmann-heise.github.io/www/christmann-heise-designs/06-Blunix/'
 title = 'Christmann & Heise'
 locale = 'de'
 defaultContentLanguage = 'de'
@@ -15,7 +15,7 @@ enabled = false
 source = 'static'
 target = 'static'
 [[module.mounts]]
-source = '../../christmann-heise-designs/04-Original/assets'
+source = '../../christmann-heise-designs/03-Original/assets'
 target = 'static/assets'
 [[menus.main]]
 name = 'Startseite'

@@ -7,11 +7,12 @@ import hashlib
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "christmann-heise-designs/04-Original"
+OUT = ROOT / "christmann-heise-designs/03-Original"
 SOURCE = ROOT / "docs/archive-original"
 PAGES = {"": "startseite-2026-01-13", **{p: p for p in (
     "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz")}}
@@ -42,7 +43,7 @@ def render(page, name):
         tag, code = match[1], match[2]
         src = attr(tag, "src")
         if src == "https://app.notara.de/js/notary-datasheet-widget.js":
-            return match[0]
+            return ""
         if src:
             clean = src.split("?")[0]
             item = assets.get(clean)
@@ -54,7 +55,7 @@ def render(page, name):
             # banner remains active on the standalone archived page.
             return match[0].replace('function(){window.cookieconsent.initialise', 'function(){if(window.top!==window.self)return;window.cookieconsent.initialise')
         if "new NotaryDatasheetWidget" in code:
-            return match[0]
+            return ""
         return ""
 
     # Keep original visual/menu scripts and public Notara widget. Analytics,
@@ -100,7 +101,7 @@ def render(page, name):
 
     rendered = re.sub(r"<a\b[^>]*>", anchor, rendered, flags=re.I)
     # Submission is intercepted before any old or preview-origin backend request.
-    runtime = '<script src="' + prefix + 'assets/preview-runtime.js"></script>'
+    runtime = '<script src="' + prefix + 'assets/preview-runtime.js"></script><script src="' + prefix + 'assets/notara-public.js" defer></script>'
     rendered = rendered.replace("</head>", '<meta name="robots" content="noindex,nofollow">' + runtime + "</head>")
     target = OUT / page / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -108,6 +109,7 @@ def render(page, name):
 
 
 def main():
+    shutil.copyfile(ROOT / 'shared/notara-public.js', OUT / 'assets/notara-public.js')
     # The archived map loader has no working Maps API integration in a static
     # preview. Preserve its markup; guard the optional API, without inventing a map.
     custom = OUT / assets["https://christmann-heise.de/wp-content/themes/vortex/assets/js/custom.min.js"]["file"]

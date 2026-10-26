@@ -2,7 +2,7 @@ from pathlib import Path
 import json,base64,zipfile,io,hashlib,re
 
 ROOT=Path(__file__).resolve().parent
-manifest=json.loads((ROOT/'varianten.json').read_text())
+manifest=json.loads((ROOT/'varianten.json').read_text(encoding='utf8'))
 variants=[]
 for variant in manifest['variants']:
     variant['html']=base64.b64encode((ROOT/variant['file']).read_bytes()).decode()
@@ -22,12 +22,11 @@ html='''<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="v
 </style></head><body><header class="mast"><div class="shell"><p class="label">Designauswahl · 24. Oktober 2026</p><div class="heading-row"><div><h1>Christmann &amp; Heise</h1><p>Drei Designrichtungen mit denselben Kanzleiinhalten. Wählen Sie einen Entwurf und wechseln Sie zwischen Desktop- und Mobilansicht.</p></div><a class="download" id="archive" download="Christmann-Heise-Drei-Designs.zip">Alle Entwürfe &amp; Quellcode ↓</a></div></div></header><main class="shell"><div class="cards" aria-label="Designrichtung auswählen">
 <button class="choice" type="button" data-index="0" aria-pressed="true"><div class="mini mini-one"><div class="mini-top"><span>Christmann &amp; Heise</span><span>BERATUNG · NOTARIAT</span></div><div class="mini-body"><div><strong>Wichtige Fragen.<br>Persönlich geklärt.</strong><div class="tiny-line"></div></div><div class="mini-art"></div></div></div><div class="choice-copy"><div class="choice-name"><span>01 · Ruhig / Salbei</span><span>Bestehender Entwurf</span></div><p>Serifenschrift, sanfte Farben und ein Raster für die Anliegen.</p></div></button>
 <button class="choice" type="button" data-index="1" aria-pressed="false"><div class="mini mini-two"><div class="mini-top"><span>Christmann &amp; Heise</span><span>RECHTSANWÄLTINNEN &amp; NOTARINNEN</span></div><div class="mini-body"><strong>Wichtige Fragen.<br>Persönlich <em>geklärt.</em></strong><div class="tiny-line"></div></div></div><div class="choice-copy"><div class="choice-name"><span>02 · Editorial / Bordeaux</span><span>Neue Alternative</span></div><p>Große Typografie, Partnerinnen im Vordergrund und Themen als Liste.</p></div></button>
-<button class="choice" type="button" data-index="2" aria-pressed="false"><div class="mini mini-three"><div class="mini-top"><span>Christmann &amp; Heise</span><span>BERATUNG · NOTARIAT</span></div><div class="mini-body"><strong>Wichtige Fragen.<br>Persönlich geklärt.</strong><div class="mini-shortcuts">Immobilien ↗<br>Vorsorge ↗<br>Erben ↗</div></div></div><div class="choice-copy"><div class="choice-name"><span>03 · Klar / Kobaltblau</span><span>Neue Alternative</span></div><p>Serifenlose Schrift, direkte Einstiege und klar gegliederte Karten.</p></div></button>
 </div><div class="toolbar"><span id="active" class="active-title">01 · Ruhig / Salbei</span><div class="tools"><button class="mode" data-mode="desktop" type="button" aria-pressed="true">Desktop</button><button class="mode" data-mode="mobile" type="button" aria-pressed="false">Mobil</button><a class="open" id="open" target="_blank" rel="noopener">Vorschau separat öffnen ↗</a><a class="open" id="save" download>HTML herunterladen ↓</a></div></div><div class="stage" id="stage"><iframe id="preview" title="Vorschau: Ruhig / Salbei" sandbox="allow-scripts allow-popups allow-downloads allow-top-navigation-by-user-activation"></iframe></div><p class="status" role="status" id="status">Variante 1 · bestehender Entwurf unverändert</p><div class="note"><strong>Entwurfsstand:</strong> Originalbilder und Original-Logo fehlen weiterhin. Die Farben sind Designvorschläge, keine bestätigten Markenfarben. Rechtliche Angaben sind als Entwurf gekennzeichnet. Die Website ist nicht veröffentlicht.<br>Alle drei Vorschauen enthalten die 14 Seiten und sind ohne Internetverbindung nutzbar. Der Quellcode enthält außerdem die ursprüngliche Fassung und die beiden vollständigen Projektalternativen. Eine visuelle Browserprüfung war in der Erstellungsumgebung nicht möglich.</div></main><script>
 const variants=VARIANT_DATA;
 function bytes(b64){const str=atob(b64);return Uint8Array.from(str,c=>c.charCodeAt(0));}
 const urls=variants.map(v=>URL.createObjectURL(new Blob([bytes(v.html)],{type:'text/html;charset=utf-8'})));
-const labels=['01 · Ruhig / Salbei','02 · Editorial / Bordeaux','03 · Klar / Kobaltblau'];
+const labels=['01 · Ruhig / Salbei','02 · Editorial / Bordeaux'];
 const frame=document.getElementById('preview');
 function select(index){
  document.querySelectorAll('.choice').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
@@ -50,5 +49,5 @@ extension=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(extension)
 html=extension.extend(html)
 out=ROOT/'Christmann-Heise-Designvergleich.html'
-out.write_text(html)
+out.write_text(html,encoding='utf8',newline='\n')
 print('Vergleich erstellt:',out.stat().st_size,'Bytes. Quellarchiv:',len(buffer.getvalue()),'Bytes.')

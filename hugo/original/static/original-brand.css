@@ -1,0 +1,20 @@
+/* Verified original site values. Theme layout may vary; branding may not. */
+:root{--ink:#777;--muted:#777;--paper:#fff;--warm:#f7f7f7;--line:#eee;--accent:#7a3674;--white:#fff;--serif:Dosis,sans-serif;--sans:Dosis,sans-serif;--color-blue-600:#7a3674;--color-primary:#7a3674;--color-primary-dark:#682e63}
+body{background:#fff!important;color:#777!important;font-family:Dosis,sans-serif!important;font-size:14px;line-height:1.8}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,button,input,textarea,select,nav,p,a,li,small,strong,.font-alt,.wordmark,.brand,.editorial-title{font-family:Dosis,sans-serif!important;font-style:normal;font-weight:400}
+h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 *,.h1,.h2,.h3,.h4,.h5,.h6{color:#7a3674!important}
+h1 *,h2 *,h3 *,h4 *,h5 *,h6 *{font-family:Dosis,sans-serif!important;font-style:normal!important}
+blockquote,.font-serif,.font-serif *{font-family:'Libre Baskerville',serif!important;font-style:italic!important;font-weight:400!important}
+a{color:rgba(122,54,116,.6)!important}a:hover,a:focus{color:#572652!important}
+button,.button.primary,.button-primary,.btn.btn-brand,input[type=submit]{background:#7a3674!important;border-color:#7a3674!important;color:#fff!important}
+button:hover,button:focus,.button.primary:hover,.button-primary:hover,.btn.btn-brand:hover,input[type=submit]:hover{background:#682e63!important;border-color:#682e63!important;color:#fff!important}
+input:focus,textarea:focus,select:focus{border-color:#7a3674!important;outline-color:#7a3674!important}
+::selection{background:#7a3674;color:#fff}
+#nav{background:#fff!important;box-shadow:none!important;border-bottom:4px solid #7a3674}
+#nav>ul>li.current>a,#topnav .navigation-menu>li.active>a,#topnav .navigation-menu>li>a:hover{color:#7a3674!important}
+#nav>ul>li.current:before{border-bottom-color:#7a3674!important}
+.site-footer,.footer,#footer{background:#fff!important;color:#777!important}.site-footer p,.footer p,#footer p{color:#777!important}
+.site-footer a,.footer a,#footer a{color:rgba(122,54,116,.6)!important}
+.hero:before,.hero:after,.site-header:before,.site-header:after{background:#fff!important}
+.editorial-rule{background:#7a3674!important}.quick-panel,.topic,.contact-card{border-color:#eee!important}
+.portrait img{width:100%;height:100%;object-fit:contain;display:block}

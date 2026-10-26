@@ -1,0 +1,117 @@
+{
+  "checks": [
+    {
+      "route": "01-Ruhig-Salbei.html",
+      "font": "Dosis, sans-serif",
+      "color": "rgb(122, 54, 116)",
+      "notara": true
+    },
+    {
+      "route": "02-Editorial-Bordeaux.html",
+      "font": "Dosis, sans-serif",
+      "color": "rgb(122, 54, 116)",
+      "notara": true
+    },
+    {
+      "route": "03-Original/",
+      "font": "Dosis",
+      "color": "rgb(122, 54, 116)",
+      "notara": true
+    },
+    {
+      "route": "03-Original/",
+      "portraits": [
+        {
+          "width": 668,
+          "height": 1000
+        },
+        {
+          "width": 668,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "route": "04-Arcana/",
+      "font": "Dosis, sans-serif",
+      "color": "rgb(122, 54, 116)",
+      "notara": true
+    },
+    {
+      "route": "04-Arcana/",
+      "portraits": [
+        {
+          "width": 668,
+          "height": 1000
+        },
+        {
+          "width": 668,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "route": "05-Agnes/",
+      "font": "Dosis, sans-serif",
+      "color": "rgb(122, 54, 116)",
+      "notara": true
+    },
+    {
+      "route": "05-Agnes/",
+      "portraits": [
+        {
+          "width": 668,
+          "height": 1000
+        },
+        {
+          "width": 668,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "route": "06-Blunix/",
+      "font": "Dosis, sans-serif",
+      "color": "rgb(122, 54, 116)",
+      "notara": true
+    },
+    {
+      "route": "06-Blunix/",
+      "portraits": [
+        {
+          "width": 668,
+          "height": 1000
+        },
+        {
+          "width": 668,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "choice": 1,
+      "label": "01 · Ruhig"
+    },
+    {
+      "choice": 2,
+      "label": "02 · Editorial"
+    },
+    {
+      "choice": 3,
+      "label": "03 · Original / Archiv"
+    },
+    {
+      "choice": 4,
+      "label": "04 · Hugo Arcana"
+    },
+    {
+      "choice": 5,
+      "label": "05 · Hugo Agnes"
+    },
+    {
+      "choice": 6,
+      "label": "06 · Hugo Blunix"
+    }
+  ],
+  "errors": []
+}

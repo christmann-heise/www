@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["", "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz"]
-ROUTES = ["04-Original", "05-Arcana", "06-Agnes", "07-Blunix"]
+ROUTES = ["03-Original", "04-Arcana", "05-Agnes", "06-Blunix"]
 
 
 class Node:
@@ -66,6 +66,11 @@ def original_text(text):
 def verify(destination="public"):
     out = ROOT / destination / "christmann-heise-designs"
     checked = []
+    expected_pages = {('index.html' if not p else p + '/index.html') for p in PAGES}
+    for route in ROUTES:
+        actual_pages = {p.relative_to(out / route).as_posix() for p in (out / route).rglob('*.html')}
+        if actual_pages != expected_pages:
+            raise AssertionError('Unexpected or missing pages: ' + route + ' ' + str(sorted(actual_pages ^ expected_pages)))
     for page in PAGES:
         source = ROOT / "docs/archive-original" / ((page or "startseite-2026-01-13") + ".html.txt")
         expected = original_text(source.read_text(encoding="utf-8"))
@@ -78,15 +83,17 @@ def verify(destination="public"):
                 raise AssertionError(f"Original text changed: {route}/{page}")
             checked.append({"route": route + "/" + page, "content_sha256": hashlib.sha256(actual.encode()).hexdigest()})
     # Earlier HTML variants are preserved exactly, including their original typography.
-    for name in ["01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html", "03-Klar-Kobaltblau.html"]:
+    for name in ["01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html"]:
         if (out / name).read_bytes() != (ROOT / "christmann-heise-designs" / name).read_bytes():
             raise AssertionError("Earlier variant changed: " + name)
     comparison = (out / "Christmann-Heise-Designvergleich.html").read_text(encoding="utf-8")
-    for index in range(7):
+    if (out / '03-Klar-Kobaltblau.html').exists():
+        raise AssertionError('Deleted proposal is still published')
+    for index in range(6):
         if f'data-index="{index}"' not in comparison:
             raise AssertionError("Missing preview choice: " + str(index + 1))
     print(json.dumps({"verified_original_pages": len(checked), "original_impressum_unchanged": True,
-                      "preview_choices": 7, "checks": checked}, ensure_ascii=False, indent=2))
+                      "preview_choices": 6, "checks": checked}, ensure_ascii=False, indent=2))
     return checked
 
 

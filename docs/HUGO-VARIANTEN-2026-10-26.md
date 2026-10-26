@@ -1,3 +1,21 @@
+# Aktueller Stand: sechs Vorschauen
+
+Der frühere Kobaltblau-Vorschlag ist gelöscht. Die Nummerierung lautet jetzt 1 Ruhig, 2 Editorial, 3 Originalnachbau, 4 Hugo Arcana, 5 Hugo Agnes, 6 Hugo Blunix. Die folgenden Abschnitte ab Erststand beschreiben den früheren Aufbau vor dieser Korrektur.
+
+Alle sechs verwenden die original belegten Schriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die Varianten 1–2 behalten ihren bisherigen Aufbau, nicht deren früher abweichende Schrift- und Farbwelt. Die Layouts der Themes dürfen variieren; die grundlegende Kanzleigestaltung bleibt verbindlich. Die Notara-Kennung und Optionen sind in shared/notara-public.js zentral hinterlegt. Es werden keine Passwörter oder geheimen Token eingebettet.
+
+Die fünf Originalporträts konnten aus einer erhaltenen Original-Website-Sicherung wiederhergestellt werden. Beide Notarinnen-Bilder haben 668 × 1000 Pixel. Auch die Bilder der Rechtsanwältinnen und der Mediatorin sind erhalten. Original-URLs, Dateigrößen und SHA-256 stehen in ORIGINALBILDER-2026-10-26.json. Die Bilddateien sind unverändert; weder KI-Bilder noch Screenshot-Ersatz noch Bilder von ähnlich benannten Personen werden verwendet.
+
+Die vier Hugo-Varianten haben jeweils genau sieben Seiten. Die Prüfung erkennt zusätzliche Seiten und vergleicht alle 28 Haupttexte einschließlich Impressum mit den Originalquellen. Sechs Tests prüfen Inhaltstreue, eine absichtliche Verfälschung, den Geheimnisscanner, die Notara-Pflicht, Schrift-Einbindung und die Original-Bildprüfsummen.
+
+Browserprüfung: Alle sechs Überschriften verwenden Dosis und rgb(122, 54, 116). Die Notara-Schaltfläche ist in allen sechs Einzelvorschauen und im Vergleich vorhanden. In allen vier Hugo-Varianten laden beide Originalporträts mit 668 × 1000 Pixeln. Kein horizontaler Überlauf bei 390 Pixeln, keine JavaScript-Seitenfehler. Die Formulare werden nicht abgesendet.
+
+Die fehlenden Hintergrund- und Plugin-Dateien sowie der nur als Shortcode archivierte Datenschutztext bleiben offen. Die früheren Aussagen zu fehlenden Porträts sind durch die Wiederherstellung überholt. Inhalte, Firmenname, Impressum und Haftungsangaben werden nicht eigenständig ergänzt oder aktualisiert.
+
+Die beauftragte GitHub-Zugriffskontrolle ist separat in REPOSITORY-SCHUTZ.md und .github/security/ dokumentiert.
+
+# Erststand vor der Umnummerierung und Wiederherstellung der Porträts
+
 # Hugo-Varianten und öffentliche Sicherheitsprüfung
 
 ## Beauftragter Umfang
@@ -28,7 +46,7 @@ Die gestalterischen Varianten 5–7 ändern die Darstellung; der Hauptinhalt ble
 ## Unvermeidbare Archivgrenzen
 
 - Die Originalseiten stammen aus unterschiedlichen belegten Archivzeitpunkten zwischen Dezember 2025 und Februar 2026. Die aktuelle Originaldomain konnte nicht als vollständige Live-Vorlage abgerufen werden.
-- Mehrere Originalporträts, ein Hintergrundbild und zusätzliche Plugin-Stylesheets fehlen im Archiv. Fehlende Bilder werden nicht durch neue oder fremde Bilder ersetzt. `christmann-heise-designs/04-Original/missing-assets.json` nennt die fehlenden Quellen. Deshalb ist der Nachbau trotz identischer Texte und originaler Hauptgestaltung visuell nicht vollständig.
+- Mehrere Originalporträts, ein Hintergrundbild und zusätzliche Plugin-Stylesheets fehlen im Archiv. Fehlende Bilder werden nicht durch neue oder fremde Bilder ersetzt. `christmann-heise-designs/03-Original/missing-assets.json` nennt die fehlenden Quellen. Deshalb ist der Nachbau trotz identischer Texte und originaler Hauptgestaltung visuell nicht vollständig.
 - Die kleinen im Originalheader verlinkten Dateien sowie die Landespreisgrafik konnten gesichert werden und bleiben dort, wo das Original sie verwendet. Die kleinen Headerdateien werden nicht als vollständiges Kanzleilogo ausgegeben.
 - Die Datenschutzquelle enthält lediglich `[avalex_de_datenschutz]`; ein vollständiger nachgeladener Rechtstext ist nicht archiviert. Es wurde kein neuer Text erfunden.
 - Original-Kontaktdaten und rechtliche Angaben werden nicht eigenständig aktualisiert, auch bei widersprüchlichen Quellenangaben.
