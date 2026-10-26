@@ -1,0 +1,31 @@
+<section class="relative py-16 md:py-24" id="{{ .Params.id | default "section" }}">
+  <div class="relative container">
+    <div class="mt-8 grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-2">
+      <div class="group relative">
+        <div class="grid grid-cols-1 pb-8 text-center">
+          <h2 class="mb-4 text-2xl leading-normal font-semibold md:text-4xl md:leading-normal">{{ .Params.title }}</h2>
+          {{ range .Params.paragraphs }}
+            <div class="prose prose-a:text-primary prose-a:hover:text-blue-700 prose-a:font-semibold prose-a:underline hover:prose-a:no-underline max-w-none">
+              <p class="mx-auto max-w-xl text-2xl text-slate-500">{{ . | markdownify }}<br /><br /></p>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="group relative">
+        <div class="relative overflow-hidden rounded-md shadow-xs">
+          {{ partial "components/image-responsive.html" (dict
+            "src" .Params.image.src
+            "alt" .Params.image.alt
+            "class" ""
+            "sizes" "(min-width: 768px) 50vw, 100vw"
+            "widths" (slice 320 400 480 545 640 768 800 960)
+            "loading" "lazy"
+          ) }}
+          <div class="absolute bottom-0 w-full bg-slate-900/30 opacity-100 duration-500 ease-in-out">
+            <p class="text-center text-white">{{ .Params.image.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

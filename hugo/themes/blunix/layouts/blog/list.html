@@ -1,0 +1,107 @@
+{{ define "main" }}
+
+<!-- Start Hero -->
+<section class="relative table w-full py-36">
+    {{ $backgroundSrc := .Params.image | default "images/blog/background.jpg" }}
+    {{ $altText := .Params.image_alt | default "Blog background" }}
+    <div class="absolute inset-0">
+        {{ partial "components/image-responsive.html" (dict
+          "src" $backgroundSrc
+          "alt" $altText
+          "class" "h-full w-full object-cover object-center"
+          "loading" "eager"
+          "fetchpriority" "high"
+          "sizes" "(max-width: 1920px) 100vw, 1920px"
+          "widths" (slice 480 640 768 960 1024 1280 1536 1920 2560 3072 3840)
+          "maxDisplayWidth" 1920
+        ) }}
+    </div>
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="container relative">
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h1 class="font-bold lg:leading-normal leading-normal text-4xl lg:text-7xl mb-5 text-white">{{ .Title | default "The Blunix Blog" }}</h1>
+            <div class="text-2xl text-slate-500 max-w-xl mx-auto text-white prose prose-a:text-blue-500 prose-a:hover:text-blue-700 prose-a:font-semibold prose-a:underline hover:prose-a:no-underline max-w-none">
+                {{ .Content | markdownify }}
+            </div>
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+        <ul class="tracking-[0.5px] mb-0 inline-block">
+           <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">Home</li>
+           <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i class="uil uil-angle-right-b"></i></li>
+           <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Blog</li>
+        </ul>
+    </div>
+</section><!--end section-->
+<div class="relative">
+    <div class="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white">
+        <svg class="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- End Hero -->
+
+<!-- Start Section-->
+<section class="relative md:py-24 py-16">
+    <div class="container relative">
+        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
+
+            {{ range .Pages.ByDate.Reverse }}
+            {{ $isExternal := .Params.external_link }}
+            {{ $link := cond $isExternal .Params.external_link .RelPermalink }}
+            <div class="group relative rounded-md border border-gray-200 shadow-sm hover:shadow-md duration-500 ease-in-out overflow-hidden flex flex-col h-full">
+                <div class="grow">
+                    <div class="relative overflow-hidden">
+                        <a href="{{ $link }}" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }} aria-label="{{ if $isExternal }}Visit external link: {{ .Title }}{{ else }}Read the blogpost: {{ .Title }}{{ end }}" class="block overflow-hidden">
+                            {{ if .Params.image }}
+                            <div class="w-full overflow-hidden" style="aspect-ratio: 16 / 9;">
+                                <div class="w-full h-full transform duration-500 ease-in-out group-hover:scale-110">
+                                    {{ partial "components/image-responsive.html" (dict
+                                      "src" (strings.TrimPrefix "/" .Params.image)
+                                      "alt" (.Params.image_alt | default .Title)
+                                      "class" "w-full h-full object-cover"
+                                      "loading" "lazy"
+                                      "sizes" "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                      "widths" (slice 320 400 500 640 800)
+                                    ) }}
+                                </div>
+                            </div>
+                            {{ end }}
+                        </a>
+                        <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out pointer-events-none"></div>
+                    </div>
+                    <div class="content p-6">
+                        <a href="{{ $link }}" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                            <h2 class="text-blue-500 hover:text-blue-700 underline hover:no-underline md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{ .Title }}</h2>
+                        </a>
+                        <p class="text-2xl text-slate-500 max-w-xl mx-auto">{{ .Description | default .Summary }}</p>
+                    </div>
+                </div>
+                <ul class="pt-4 border-t border-gray-200 flex items-center list-none text-slate-500 px-6 pb-6">
+                    {{ if not $isExternal }}
+                    <li class="flex items-center me-4">
+                        <span class="inline-flex me-2 text-slate-500">
+                            {{ partial "components/icon.html" (dict "name" "clock" "class" "w-5 h-5") }}
+                        </span>
+                        <span>{{ .ReadingTime }} {{ if eq .ReadingTime 1 }}{{ i18n "reading_time_minute" }}{{ else }}{{ i18n "reading_time_minutes" }}{{ end }}</span>
+                    </li>
+                    {{ end }}
+                    <li class="flex items-center me-4">
+                        <span class="inline-flex me-2 text-slate-500">
+                            {{ partial "components/icon.html" (dict "name" "calendar" "class" "w-5 h-5") }}
+                        </span>
+                        <span>{{ if .Params.date_display }}{{ .Params.date_display }}{{ else }}{{ .Date | time.Format ":date_long" }}{{ end }}</span>
+                    </li>
+                </ul>
+            </div>
+            {{ end }}
+
+        </div><!--end grid-->
+    </div><!--end container-->
+</section><!--end section-->
+
+{{ partial "cta-blog" . }}
+
+{{ end }}

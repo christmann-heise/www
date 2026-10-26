@@ -1,0 +1,80 @@
+{{ define "main" }}
+<!-- Start Hero -->
+<section class="relative table w-full py-36">
+    {{ $backgroundSrc := .Params.image | default "images/blog/background.jpg" }}
+    {{ $altText := .Params.image_alt | default .Title | default "Blog background" }}
+    <div class="absolute inset-0">
+        {{ partial "components/image-responsive.html" (dict
+          "src" (strings.TrimPrefix "/" $backgroundSrc)
+          "alt" $altText
+          "class" "h-full w-full object-cover object-center"
+          "loading" "eager"
+          "fetchpriority" "high"
+          "sizes" "(max-width: 1920px) 100vw, 1920px"
+          "widths" (slice 480 640 768 960 1024 1280 1536 1920 2560 3072 3840)
+          "maxDisplayWidth" 1920
+        ) }}
+    </div>
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="container relative">
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h1 class="md:text-4xl text-3xl md:leading-normal tracking-wide leading-normal font-medium text-white">{{ .Title }}</h1>
+            {{ if .Description }}
+            <p class="text-center text-2xl text-white">{{ .Description }}</p>
+            {{ end }}
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+        <ul class="tracking-[0.5px] mb-0 inline-block">
+            <a href="/" title="main page"><li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">Home</li></a>
+            <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i class="uil uil-angle-right-b"></i></li>
+            <a href="/blog/" title="blog overview"><li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">Blog</li></a>
+            <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i class="uil uil-angle-right-b"></i></li>
+            <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">{{ .Params.breadcrumb | default .Title }}</li>
+        </ul>
+    </div>
+</section><!--end section-->
+<div class="relative">
+    <div class="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white">
+        <svg class="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- End Hero -->
+
+{{ if ne .Language.Lang "en" }}
+{{ range .Translations }}
+    {{ if eq .Language.Lang "en" }}
+<!-- Machine Translation Notice -->
+<section class="relative py-6">
+    <div class="container relative">
+        <div class="flex items-start gap-3 max-w-4xl mx-auto">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-slate-100 rounded-lg shrink-0 mt-0.5">
+                <i class="uil uil-language text-slate-600 text-lg"></i>
+            </span>
+            <p class="text-base text-slate-700">
+                {{ i18n "blog_translation_notice" }}
+                <a href="{{ .RelPermalink }}" class="text-blue-600 hover:text-blue-700 underline font-medium" title="English version">{{ .Title }}</a>
+            </p>
+        </div>
+    </div>
+</section>
+    {{ end }}
+{{ end }}
+{{ end }}
+
+<!-- Start Section-->
+<section class="relative md:py-24 py-16 template-sec">
+    <div class="container relative">
+        <div class="grid grid-cols-1 gap-4 md:gap-5 lg:gap-[30px]">
+
+{{ .Content }}
+
+        </div>
+    </div><!--end container-->
+</section><!--end section-->
+
+  {{ partial "cta-blog" . }}
+{{ end }}

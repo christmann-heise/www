@@ -1,0 +1,28 @@
+<section class="relative flex h-[90vh] flex-col justify-center py-36 md:py-80" id="start">
+  {{ $backgroundSrc := .Params.background | default "images/index/background.webp" }}
+  {{ $altText := .Params.alt | default .Params.title | default "Background" }}
+  <div class="absolute inset-0">
+    {{ partial "components/image-responsive.html" (dict
+      "src" $backgroundSrc
+      "alt" $altText
+      "class" "h-full w-full object-cover object-center"
+      "loading" "eager"
+      "fetchpriority" "high"
+      "sizes" "(max-width: 1920px) 100vw, 1920px"
+      "widths" (slice 480 640 768 960 1024 1280 1536 1920 2560 3072 3840)
+      "maxDisplayWidth" 1920
+    ) }}
+  </div>
+  <div class="absolute inset-0 bg-slate-900/40"></div>
+  <div class="relative container">
+    <div class="mt-10 grid grid-cols-1 items-center">
+      <h1 class="mb-5 text-4xl leading-normal font-extrabold text-white lg:text-7xl lg:leading-normal">{{ .Params.title }}</h1>
+      <p class="max-w-xl font-extrabold text-lg text-white lg:text-3xl">{{ .Params.subtitle | markdownify }}</p>
+      {{ with .Params.cta }}
+        <div class="mt-8">
+          <a href="{{ .url | safeURL }}" title="{{ .title }}" class="inline-block rounded-md border border-red-600 bg-red-600 px-5 py-2 text-center align-middle text-base font-semibold tracking-wide text-white duration-500 hover:border-blue-700 hover:bg-blue-700">{{ .label }}</a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

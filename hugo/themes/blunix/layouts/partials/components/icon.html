@@ -1,0 +1,16 @@
+{{/*
+  Icon component - loads feather icons from assets/icons/
+  Usage: {{ partial "components/icon.html" (dict "name" "hexagon" "class" "size-24") }}
+*/}}
+{{ $name := .name }}
+{{ $class := .class | default "" }}
+{{ $iconPath := printf "icons/%s.svg" $name }}
+
+{{ with resources.Get $iconPath }}
+  {{ $svg := .Content }}
+  {{ $svg = replace $svg "class=\"feather feather-" (printf "class=\"%s feather feather-" $class) }}
+  {{ $svg | safeHTML }}
+{{ else }}
+  {{/* Fallback if icon not found */}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+{{ end }}

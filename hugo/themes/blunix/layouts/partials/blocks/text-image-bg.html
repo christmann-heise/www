@@ -1,0 +1,23 @@
+<section class="relative z-10 overflow-hidden pb-16 md:pb-24" id="{{ .Params.id | default "text-image" }}">
+  <div class="relative container mt-16 gap-[30px] md:mt-24">
+    <div class="grid md:grid-cols-2 grid-cols-1 items-center gap-[30px]">
+      <div class="order-1 {{ if eq .Params.image_position "right" }}md:order-2{{ else }}md:order-1{{ end }} relative">
+        {{ partial "components/image-responsive.html" (dict
+          "src" .Params.image.src
+          "alt" .Params.image.alt
+          "class" "rounded-lg shadow-md relative z-[1]"
+          "loading" "lazy"
+          "sizes" "(min-width: 768px) 550px, 100vw"
+          "widths" (slice 320 400 550 700 900 1100 1400)
+        ) }}
+      </div>
+      <div class="order-2 {{ if eq .Params.image_position "right" }}lg:me-8 md:order-1{{ else }}lg:ms-8 md:order-2{{ end }}">
+        <h3 class="mb-4 text-2xl leading-normal font-semibold md:text-4xl md:leading-normal">{{ .Params.title }}</h3>
+        <div class="prose max-w-none prose-p:mb-4 prose-p:max-w-xl prose-p:text-2xl prose-p:leading-8 prose-p:text-slate-500 prose-h3:mb-4 prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:leading-8 prose-h3:md:leading-9 prose-h3:font-semibold prose-a:text-blue-500 prose-a:hover:text-primary-dark prose-a:font-semibold prose-a:underline hover:prose-a:no-underline">
+          {{ .Params.text | markdownify }}
+        </div>
+        {{ partial "components/buttons.html" .Params }}
+      </div>
+    </div>
+  </div>
+</section>

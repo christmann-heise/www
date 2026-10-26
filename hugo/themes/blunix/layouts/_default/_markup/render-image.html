@@ -1,0 +1,29 @@
+{{- $src := .Destination -}}
+{{- $alt := .Text -}}
+{{- $title := .Title -}}
+
+{{- $isRemote := or (strings.HasPrefix $src "http://") (strings.HasPrefix $src "https://") -}}
+{{- $isSvg := strings.HasSuffix $src ".svg" -}}
+
+{{- if $isRemote -}}
+  {{- /* Remote images - render as plain img tag */ -}}
+  <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" />
+{{- else if $isSvg -}}
+  {{- /* SVG images - render as plain img tag */ -}}
+  {{ with resources.GetMatch (strings.TrimPrefix "/" $src) }}
+    <img src="{{ .RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" />
+  {{ else }}
+    <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" />
+  {{ end }}
+{{- else -}}
+  {{- /* Raster images - use responsive component with higher quality for screenshots */ -}}
+  {{ partial "components/image-responsive.html" (dict
+    "src" (strings.TrimPrefix "/" $src)
+    "alt" $alt
+    "class" ""
+    "sizes" "(min-width: 1024px) 1200px, 100vw"
+    "widths" (slice 320 480 640 800 960 1200 1600 2000 2400)
+    "quality" 92
+    "loading" "lazy"
+  ) }}
+{{- end -}}

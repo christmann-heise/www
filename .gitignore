@@ -1,3 +1,10 @@
 # Lokale Recherchezwischenstände und Browser-Prüfdateien
 /preview-review/
 /archive-research/
+/.tools/
+/public/
+/.hugo_build.lock
+/hugo/*/public/
+/hugo/*/.hugo_build.lock
+/hugo/*/resources/
+**/__pycache__/

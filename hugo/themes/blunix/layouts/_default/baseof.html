@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}" class="light overflow-x-hidden scroll-smooth" dir="ltr">
+  {{- partial "head.html" . -}}
+  <body class="font-nunito overflow-x-hidden text-base text-black bg-white">
+    {{- partial "header.html" . -}}
+    {{- block "main" . }}{{- end }}
+    {{- partial "footer.html" . -}}
+    {{- partial "lightbox.html" . -}}
+
+    <a href="#start" onclick="topFunction()" id="back-to-top" class="back-to-top fixed end-5 bottom-5 z-10 hidden size-9 rounded-full bg-blue-600 text-center text-lg leading-9 text-white"><i class="uil uil-arrow-up"></i></a>
+
+    {{/* Prism.js - Only load for blog posts and ssh-public-keys page */}}
+    {{ $needsPrism := or (and (eq .Section "blog") .IsPage) (eq .Layout "ssh-public-keys") }}
+    {{ if $needsPrism }}
+    <script src="/js/prism.min.js"></script>
+    {{ end }}
+
+    <script defer src="/js/scripts.js"></script>
+  </body>
+</html>

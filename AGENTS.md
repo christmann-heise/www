@@ -11,5 +11,9 @@
 
 ## Quellen
 
+- Zieltechnik ist Hugo. Varianten 4 bis 7 sind Originalnachbau, Hugo Arcana, Hugo Agnes und Hugo Blunix; alle vier verwenden die sieben belegten Originalseiten.
+- Themes dürfen ihre eigenen Beispieltexte, Demo-Firmennamen, Leistungsversprechen, Preise oder Kontaktdaten nicht in die Kanzleiseiten übernehmen.
+- Vor Veröffentlichung `scripts/build-site.py`, `scripts/verify-site.py` und die Tests zur unveränderten Übernahme der Originaltexte ausführen. Keine Zugangsdaten im öffentlichen Repository speichern.
+
 - `docs/ARCHIV-GESTALTUNG-2026-10-26.md`: belegte Gestaltung und Grenzen der Archivfunde.
 - `docs/archive-original/`: archivierte Quelltexte, Stylesheets und Herkunftsnachweise. HTML absichtlich als `.html.txt` archiviert, damit alter aktiver Code nicht als Website ausgeführt wird.

@@ -1,0 +1,62 @@
+name: Hugo preview build and deployment
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hugo-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUGO_VERSION: 0.168.0
+  SASS_VERSION: 1.106.1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Check repository history and embedded archives for credentials
+        run: python3 scripts/check-public-secrets.py
+      - name: Install pinned Hugo and Dart Sass
+        run: |
+          mkdir -p "${RUNNER_TEMP}/hugo" "${RUNNER_TEMP}/sass"
+          curl --fail --location --output "${RUNNER_TEMP}/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "fada83ad56bb27ed4cb7dd81590303bdac16140f944ac4e66fc248117e2d5594  ${RUNNER_TEMP}/hugo.tar.gz" | sha256sum --check
+          tar -xzf "${RUNNER_TEMP}/hugo.tar.gz" -C "${RUNNER_TEMP}/hugo"
+          curl --fail --location --output "${RUNNER_TEMP}/sass.tar.gz" "https://github.com/sass/dart-sass/releases/download/${SASS_VERSION}/dart-sass-${SASS_VERSION}-linux-x64.tar.gz"
+          echo "ad99cccb90de4ad2926e03e32d819c83baf32c3dbff56da92df0eed10e604d60  ${RUNNER_TEMP}/sass.tar.gz" | sha256sum --check
+          tar -xzf "${RUNNER_TEMP}/sass.tar.gz" -C "${RUNNER_TEMP}/sass"
+          echo "${RUNNER_TEMP}/hugo" >> "${GITHUB_PATH}"
+          echo "${RUNNER_TEMP}/sass/dart-sass" >> "${GITHUB_PATH}"
+      - name: Build four Hugo variants and preview index
+        run: python3 scripts/build-site.py
+      - name: Verify all original content, including legal pages
+        run: |
+          python3 scripts/verify-site.py
+          python3 -m unittest discover -s tests
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v6
+      - uses: actions/deploy-pages@v5
+        id: deployment

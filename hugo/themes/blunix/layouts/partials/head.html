@@ -1,0 +1,111 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="linux, debian, ubuntu, consulting, hosting, training, classes, courses" />
+  <meta name="author" content="Blunix GmbH" />
+  <meta name="website" content="https://www.blunix.com" />
+  <meta name="email" content="info@blunix.com" />
+  <meta name="version" content="2.0.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  {{/* Canonical Link - Remove index.html from URLs */}}
+  {{- $canonicalURL := .Permalink | replaceRE "/index\\.html$" "/" | replaceRE "/index\\.html#" "/#" -}}
+  <link rel="canonical" href="{{ $canonicalURL }}" />
+  
+  {{- if .IsTranslated -}}
+  {{- $currentLangURL := .Permalink | replaceRE "/index\\.html$" "/" | replaceRE "/index\\.html#" "/#" -}}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ $currentLangURL }}" />
+    {{- range .Translations }}
+  {{- $transLangURL := .Permalink | replaceRE "/index\\.html$" "/" | replaceRE "/index\\.html#" "/#" -}}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ $transLangURL }}" />
+    {{- end }}
+  {{- else }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ $canonicalURL }}" />
+  {{- end }}
+  {{- $xDefaultPage := . -}}
+  {{- if ne .Language.Lang "en" -}}
+    {{- with (first 1 (where .Translations "Language.Lang" "en")) -}}
+      {{- $xDefaultPage = index . 0 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $xDefaultURL := $xDefaultPage.Permalink | replaceRE "/index\\.html$" "/" | replaceRE "/index\\.html#" "/#" -}}
+  <link rel="alternate" hreflang="x-default" href="{{ $xDefaultURL }}" />
+  <title>{{ if .Params.seo_title }}{{ .Params.seo_title }}{{ else if .Title }}{{ .Title }}{{ else }}Blunix GmbH Berlin: Linux Support, Consulting and Hosting{{ end }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}Linux Support 24/7, Project based Linux Consulting, Managed Hosting with FOSS Configuration Management as well as Linux Workshops and Trainings{{ end }}" />
+  {{/* Preload hero background image if present */}}
+  {{ $backgroundSrc := "" }}
+
+  {{/* Determine background source based on page type */}}
+  {{ if .Params.backgroundImage }}
+    {{ $backgroundSrc = .Params.backgroundImage }}
+  {{ else if eq .Kind "404" }}
+    {{ $backgroundSrc = .Site.Params.background_404 }}
+  {{ else if .Params.background }}
+    {{ $backgroundSrc = .Params.background }}
+  {{ else if .IsHome }}
+    {{/* For homepage, read from first hero block if present */}}
+    {{ range first 1 .Params.blocks }}
+      {{ if and (eq .block "hero") .background }}
+        {{ $backgroundSrc = .background }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Generate preload if we have a background */}}
+  {{ if $backgroundSrc }}
+    {{ with resources.GetMatch $backgroundSrc }}
+      {{ $img := . }}
+      {{ $targetWidth := 1920 }}
+      {{ $isWebP := strings.HasSuffix $backgroundSrc ".webp" }}
+      {{ $quality := 85 }}
+
+      {{ if lt $img.Width $targetWidth }}
+        {{/* Image is smaller than target - don't upscale, use original */}}
+        <link rel="preload" as="image" href="{{ $img.RelPermalink }}" fetchpriority="high" />
+      {{ else }}
+        {{/* Image is >= 1920px - may need resizing to 1920px */}}
+        {{ $tolerance := 50 }}
+        {{ $sizeDiff := sub $img.Width $targetWidth }}
+
+        {{ if le $sizeDiff $tolerance }}
+          {{/* Image is within tolerance of 1920px - use original to match image-responsive.html */}}
+          <link rel="preload" as="image" href="{{ $img.RelPermalink }}" fetchpriority="high" />
+        {{ else if $isWebP }}
+          {{/* WebP source over 1920px+tolerance - resize with quality 85 to match image-responsive.html */}}
+          {{ $resized := $img.Resize (printf "1920x webp q%d" $quality) }}
+          <link rel="preload" as="image" href="{{ $resized.RelPermalink }}" fetchpriority="high" />
+        {{ else }}
+          {{/* JPEG/PNG source - convert to WebP with quality 85 to match image-responsive.html */}}
+          {{ $resized := $img.Resize (printf "1920x webp q%d" $quality) }}
+          <link rel="preload" as="image" href="{{ $resized.RelPermalink }}" fetchpriority="high" />
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Preload critical fonts to eliminate font discovery delay */}}
+  <link rel="preload" href="/fonts/Nunito-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Nunito-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Nunito-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+
+  {{/* Cache key based on whether it's a blog single post */}}
+  {{ $isBlogSingle := and (eq .Section "blog") .IsPage }}
+
+  {{/* Auto-detect if page needs Prism.js for code highlighting */}}
+  {{ $needsPrism := or (and (eq .Section "blog") .IsPage) (eq .Layout "ssh-public-keys") }}
+
+  {{ $cssContext := dict "isBlogSingle" $isBlogSingle "needsPrism" $needsPrism }}
+  {{ partialCached "css.html" $cssContext $isBlogSingle $needsPrism }}
+
+  {{ partial "opengraph.html" . }}
+  {{ partial "twitter_cards.html" . }}
+
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+  <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/gif" href="/images/favicon/favicon.gif" />
+  <link rel="icon" type="image/png" href="/images/favicon/favicon.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/apple-touch-57x57.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/apple-touch-72x72.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-114x114.ico" />
+</head>

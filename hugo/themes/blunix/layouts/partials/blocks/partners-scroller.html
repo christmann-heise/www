@@ -1,0 +1,92 @@
+<section class="scroll-mt-[130px] w-full">
+  <div class="scroller bg-blue" data-direction="left" data-speed="fast">
+    <div class="scroller__inner">
+      {{ range .Params.partners }}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+        {{ $imgSrc := .img }}
+        {{ $imgAlt := .alt }}
+        {{/* Strip leading slash for resources.GetMatch */}}
+        {{ $imgPath := strings.TrimPrefix "/" $imgSrc }}
+        {{ $isSvg := strings.HasSuffix $imgSrc ".svg" }}
+        {{ $isRemote := or (strings.HasPrefix $imgSrc "http://") (strings.HasPrefix $imgSrc "https://") }}
+
+        {{ if $isRemote }}
+          <img src="{{ $imgSrc }}" alt="{{ $imgAlt }}" class="h-10 transition-all 200ms ease-in hover:grayscale-0" loading="lazy" />
+        {{ else if $isSvg }}
+          {{ with resources.GetMatch $imgPath }}
+            {{/* Calculate display dimensions for h-10 (40px) */}}
+            {{ $displayHeight := 40 }}
+            {{ $aspectRatio := div (float .Width) (float .Height) }}
+            {{ $displayWidth := int (mul $displayHeight $aspectRatio) }}
+            <img src="{{ .RelPermalink }}" alt="{{ $imgAlt }}" width="{{ $displayWidth }}" height="{{ $displayHeight }}" class="h-10 transition-all 200ms ease-in hover:grayscale-0" loading="lazy" />
+          {{ else }}
+            <img src="{{ $imgSrc | relURL }}" alt="{{ $imgAlt }}" class="h-10 transition-all 200ms ease-in hover:grayscale-0" loading="lazy" />
+          {{ end }}
+        {{ else }}
+          {{ with resources.GetMatch $imgPath }}
+            {{ $isWebP := strings.HasSuffix $imgPath ".webp" }}
+            {{ $resized := . }}
+
+            {{/* Resize to 80px height for retina displays (h-10 = 40px × 2) */}}
+            {{ if gt .Height 80 }}
+              {{ if $isWebP }}
+                {{ $resized = .Resize "x80 webp q85" }}
+              {{ else }}
+                {{ $resized = .Resize "x80 q85" }}
+              {{ end }}
+            {{ end }}
+
+            {{/* Calculate display dimensions for h-10 (40px) */}}
+            {{ $displayHeight := 40 }}
+            {{ $aspectRatio := div (float $resized.Width) (float $resized.Height) }}
+            {{ $displayWidth := int (mul $displayHeight $aspectRatio) }}
+
+            {{/* Generate additional sizes for srcset */}}
+            {{ $srcset := slice }}
+
+            {{/* Add 1x version (40px height) */}}
+            {{ if gt .Height 40 }}
+              {{ if $isWebP }}
+                {{ $img1x := .Resize "x40 webp q85" }}
+                {{ $srcset = $srcset | append (printf "%s 1x" $img1x.RelPermalink) }}
+              {{ else }}
+                {{ $img1x := .Resize "x40 q85" }}
+                {{ $srcset = $srcset | append (printf "%s 1x" $img1x.RelPermalink) }}
+              {{ end }}
+            {{ end }}
+
+            {{/* Add 2x version (80px height) - this is our main image */}}
+            {{ $srcset = $srcset | append (printf "%s 2x" $resized.RelPermalink) }}
+
+            {{/* Add 3x version (120px height) if source is large enough */}}
+            {{ if gt .Height 120 }}
+              {{ if $isWebP }}
+                {{ $img3x := .Resize "x120 webp q85" }}
+                {{ $srcset = $srcset | append (printf "%s 3x" $img3x.RelPermalink) }}
+              {{ else }}
+                {{ $img3x := .Resize "x120 q85" }}
+                {{ $srcset = $srcset | append (printf "%s 3x" $img3x.RelPermalink) }}
+              {{ end }}
+            {{ end }}
+
+            {{ $srcsetStr := delimit $srcset ", " }}
+
+            {{/* Create WebP version if source isn't WebP */}}
+            {{ if not $isWebP }}
+              {{ $webp := $resized.Resize (printf "x%d webp q85" $resized.Height) }}
+              <picture>
+                <source type="image/webp" srcset="{{ $webp.RelPermalink }}" />
+                <img src="{{ $resized.RelPermalink }}" {{ with $srcsetStr }}srcset="{{ . }}"{{ end }} alt="{{ $imgAlt }}" width="{{ $displayWidth }}" height="{{ $displayHeight }}" class="h-10 transition-all 200ms ease-in hover:grayscale-0" loading="lazy" decoding="async" />
+              </picture>
+            {{ else }}
+              <img src="{{ $resized.RelPermalink }}" {{ with $srcsetStr }}srcset="{{ . }}"{{ end }} alt="{{ $imgAlt }}" width="{{ $displayWidth }}" height="{{ $displayHeight }}" class="h-10 transition-all 200ms ease-in hover:grayscale-0" loading="lazy" decoding="async" />
+            {{ end }}
+          {{ else }}
+            <img src="{{ $imgSrc | relURL }}" alt="{{ $imgAlt }}" class="h-10 transition-all 200ms ease-in hover:grayscale-0" loading="lazy" />
+          {{ end }}
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>

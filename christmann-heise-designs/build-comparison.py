@@ -44,6 +44,11 @@ document.getElementById('archive').href=URL.createObjectURL(new Blob([bytes('ARC
 select(0);
 </script></body></html>'''
 html=html.replace('VARIANT_DATA',json.dumps(variants,ensure_ascii=False).replace('</','<\\/')).replace('ARCHIVE_DATA',archive)
+import importlib.util
+spec=importlib.util.spec_from_file_location('extend_comparison',ROOT.parent/'scripts/extend-comparison.py')
+extension=importlib.util.module_from_spec(spec)
+spec.loader.exec_module(extension)
+html=extension.extend(html)
 out=ROOT/'Christmann-Heise-Designvergleich.html'
 out.write_text(html)
 print('Vergleich erstellt:',out.stat().st_size,'Bytes. Quellarchiv:',len(buffer.getvalue()),'Bytes.')

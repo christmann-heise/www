@@ -1,0 +1,132 @@
+<nav id="topnav" class="defaultscroll is-sticky">
+    <div class="container relative">
+        <a class="logo" href="{{ "/" | relLangURL }}">
+            {{ $siteTitle := .Site.Title }}
+            {{ with resources.GetMatch "images/navbar/logo-dark.svg" }}
+            <img src="{{ .RelPermalink }}" class="l-dark h-[54px] w-auto" width="200" height="50" fetchpriority="high" alt="{{ $siteTitle }} Logo">
+            {{ end }}
+            {{ with resources.GetMatch "images/navbar/logo-light.svg" }}
+            <img src="{{ .RelPermalink }}" class="l-light h-[54px] w-auto" width="200" height="50" fetchpriority="high" alt="{{ $siteTitle }} Logo">
+            {{ end }}
+        </a>
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                    <div class="lines"><span></span><span></span><span></span></div>
+                </a>
+            </div>
+        </div>
+        <div id="navigation" class="transition-transform duration-300 ease-in-out">
+            <ul class="navigation-menu nav-light justify-end">
+                {{ range .Site.Menus.main }}
+                  {{ if eq .Identifier "services" }}
+                    <li class="has-submenu services-has-submenu parent-parent-menu-item">
+                      <a href="#" onclick="return false;">{{ .Name }}</a><span class="menu-arrow"></span>
+                      <ul class="submenu services-submenu"><li><ul>
+                        {{ range $.Site.Menus.services }}
+                          <li><a href="{{ .URL | safeURL }}" class="sub-menu-item text-base"><i class="{{ .Params.icon }}"></i> {{ .Name }}{{ if .Params.extraSpacing }}&nbsp;&nbsp;&nbsp;{{ end }}</a></li>
+                        {{ end }}
+                      </ul></li></ul>
+                    </li>
+                  {{ else }}
+                    <li><a href="{{ .URL | safeURL }}" class="sub-menu-item">{{ .Name }}</a></li>
+                  {{ end }}
+                {{ end }}
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="#" onclick="return false;" aria-label="language switcher">
+                        <i class="uil uil-globe" style="font-size: 1.3rem;"></i>
+                    </a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <ul id="languageMenu">
+                                {{ $page := $.Page }}
+                                {{/* Build a lookup map for language params from site config */}}
+                                {{ $langParamsMap := dict }}
+                                {{ range $.Site.Languages }}
+                                  {{ $langCode := .Lang }}
+                                  {{/* Access language-specific params from site's language configurations */}}
+                                  {{/* In Hugo, language params are accessible via the site's language configs */}}
+                                  {{ $langParams := .Params }}
+                                  {{ if $langParams }}
+                                    {{ $langParamsMap = merge $langParamsMap (dict $langCode $langParams) }}
+                                  {{ end }}
+                                {{ end }}
+                                {{ range $.Site.Languages }}
+                                  {{ $langCode := .Lang }}
+                                  {{/* Get language-specific params from config */}}
+                                  {{ $langParams := index $langParamsMap $langCode }}
+                                  {{ $langFlag := "" }}
+                                  {{ $flagAlt := "" }}
+                                  {{/* Get language label - prefer params.label, then params.i18n_label_key, then languageName from config */}}
+                                  {{ $langLabel := .LanguageName }}
+                                  {{ if not $langLabel }}
+                                    {{ $langLabel = .languageName }}
+                                  {{ end }}
+                                  {{ if not $langLabel }}
+                                    {{ $langLabel = $langCode }}
+                                  {{ end }}
+                                  {{ if $langParams }}
+                                    {{ $langFlag = $langParams.flag_image }}
+                                    {{ $flagAlt = $langParams.flag_alt }}
+                                    {{/* Override with label from params if specified */}}
+                                    {{ if $langParams.label }}
+                                      {{ $langLabel = $langParams.label }}
+                                    {{ else if $langParams.i18n_label_key }}
+                                      {{ $langLabel = i18n $langParams.i18n_label_key }}
+                                    {{ end }}
+                                  {{ end }}
+                                  {{ $targetURL := "" }}
+                                  {{ $isActive := eq $langCode $.Site.Language.Lang }}
+                                  
+                                  {{/* Find translation URL for this language */}}
+                                  {{ if $isActive }}
+                                    {{ $targetURL = $page.RelPermalink }}
+                                  {{ else }}
+                                    {{/* Iterate through AllTranslations to find the one matching this language */}}
+                                    {{ range $page.AllTranslations }}
+                                      {{ if eq .Language.Lang $langCode }}
+                                        {{ $targetURL = .RelPermalink }}
+                                      {{ end }}
+                                    {{ end }}
+                                    {{/* If no translation found, try home page translations */}}
+                                    {{ if not $targetURL }}
+                                      {{ range $.Site.Home.AllTranslations }}
+                                        {{ if eq .Language.Lang $langCode }}
+                                          {{ $targetURL = .RelPermalink }}
+                                        {{ end }}
+                                      {{ end }}
+                                      {{/* Final fallback to home page */}}
+                                      {{ if not $targetURL }}
+                                        {{ $targetURL = $.Site.Home.RelPermalink }}
+                                      {{ end }}
+                                    {{ end }}
+                                  {{ end }}
+                                  
+                                <li>
+                                  <a href="{{ $targetURL }}" class="sub-menu-item" data-lang="{{ $langCode }}" {{ if $isActive }}aria-current="true"{{ end }}>
+                                    {{ if $langFlag }}
+                                      {{ $altText := $flagAlt }}
+                                      {{ if not $altText }}
+                                        {{ $altText = printf "%s flag" $langLabel }}
+                                      {{ end }}
+                                      {{ $flagPath := printf "images/navbar/flags/%s.webp" $langFlag }}
+                                      {{ with resources.GetMatch $flagPath }}
+                                        <img src="{{ .RelPermalink }}" alt="{{ $altText }}" width="{{ .Width }}" height="{{ .Height }}" class="h-5 w-auto lg:w-5 lg:h-5 object-contain flex-shrink-0">
+                                      {{ else }}
+                                        <img src="/images/navbar/flags/{{ $langFlag }}.webp" alt="{{ $altText }}" class="h-5 w-auto lg:w-5 lg:h-5 object-contain flex-shrink-0">
+                                      {{ end }}
+                                    {{ else }}
+                                      <span class="inline-flex w-auto h-5 lg:w-5 lg:h-5 items-center justify-center rounded-xs bg-slate-200 text-sm lg:text-[0.65rem] font-semibold uppercase text-slate-700 flex-shrink-0 px-2">{{ $langCode }}</span>
+                                    {{ end }}
+                                    <span class="hidden lg:inline">{{ $langLabel }}</span>
+                                  </a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

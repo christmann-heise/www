@@ -1,0 +1,13 @@
+{
+  "source": "https://fonts.googleapis.com/css?family=Dosis%3Aregular%7CLibre+Baskerville%3Aitalic&subset=latin%2Clatin-ext",
+  "fonts": [
+    {
+      "original": "https://fonts.gstatic.com/s/dosis/v34/HhyJU5sn9vOmLxNkIwRSjTVNWLEJN7Ml1RMB.ttf",
+      "file": "assets/f978aca68e1d.ttf"
+    },
+    {
+      "original": "https://fonts.gstatic.com/s/librebaskerville/v24/kmKWZrc3Hgbbcjq75U4uslyuy4kn0qNccR04_RUJeby2OU36SjNDluI.ttf",
+      "file": "assets/42377190eb37.ttf"
+    }
+  ]
+}

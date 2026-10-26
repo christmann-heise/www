@@ -1,0 +1,25 @@
+<section class="relative md:pb-24 pb-16 overflow-hidden" id="{{ .Params.id | default "features" }}">
+  <div class="container relative">
+    <div class="grid grid-cols-1 pb-8 items-end">
+      <h2 class="mb-4 md:text-4xl md:leading-normal text-2xl leading-normal font-semibold">{{ .Params.title }}</h2>
+      {{ with .Params.subtitle }}<p class="text-slate-500 text-2xl duration-500 mt-3">{{ . }}</p>{{ end }}
+    </div>
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+      {{ range .Params.items }}
+      <div class="group relative p-6 shadow-xs rounded-xl bg-white overflow-hidden">
+        <div class="relative overflow-hidden text-transparent -m-3">
+          {{ partial "components/icon.html" (dict "name" "hexagon" "class" "size-24 fill-blue-600/5") }}
+          <div class="absolute top-0 left-0 w-24 h-24 text-primary rounded-xl duration-500 text-3xl flex items-center justify-center">
+            <i class="{{ .icon }} leading-none inline-flex items-center justify-center"></i>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-3xl duration-500">{{ .title }}</h3>
+          <p class="text-slate-500 text-2xl duration-500 mt-3 [&_a]:text-blue-500 [&_a]:font-semibold [&_a]:underline [&_a]:transition-colors [&_a]:duration-300 [&_a:hover]:text-blue-600 [&_a:hover]:no-underline">{{ .details | markdownify }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+

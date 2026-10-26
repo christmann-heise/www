@@ -1,0 +1,18 @@
+{{/* Context is a dict with isBlogSingle and needsPrism flags */}}
+{{ $isBlogSingle := .isBlogSingle }}
+{{ $needsPrism := .needsPrism }}
+
+<link rel="stylesheet" href="/css/style.css" />
+
+{{/* External CSS Libraries */}}
+<link rel="preload" href="/libs/@iconscout/unicons/css/line.min.css" as="style" onload="this.rel='stylesheet'" />
+
+{{/* Blog Styles - Only load for single blog posts */}}
+{{ if $isBlogSingle }}
+<link rel="stylesheet" href="/css/blog-styles.min.css" />
+{{ end }}
+
+{{/* Prism Code Highlighting - Only load for blog posts and ssh-public-keys page */}}
+{{ if $needsPrism }}
+<link rel="stylesheet" href="/css/prism.min.css" />
+{{ end }}
