@@ -1,4 +1,4 @@
-"""Build the preview index and two genuine Hugo sites. No network is required."""
+"""Build the preview index and one genuine Hugo site. No network is required."""
 import argparse
 import os
 import shutil
@@ -28,13 +28,13 @@ def main():
     previews.mkdir(exist_ok=True)
     for name in ("01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html", "Christmann-Heise-Designvergleich.html"):
         shutil.copyfile(ROOT / "christmann-heise-designs" / name, previews / name)
-    for site, route in (("original", "03-Original"), ("blunix", "06-Blunix")):
+    for site, route in (("original", "03-Original")):
         subprocess.run([args.hugo, "--source", str(ROOT / "hugo" / site),
                         "--destination", str(previews / route),
                         "--baseURL", args.base_url.rstrip("/") + "/christmann-heise-designs/" + route + "/"],
                        cwd=ROOT, check=True)
     (destination / ".nojekyll").write_text("", encoding="utf-8")
-    print("Built four previews; variants 3 and 6 rendered by Hugo")
+    print("Built three previews; variant 3 rendered by Hugo")
 
 
 if __name__ == "__main__":

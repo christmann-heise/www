@@ -1,3 +1,5 @@
+> Aktualisierung 27.10.2026: Auch Variante 6 (Hugo Blunix) wurde entfernt. Verbleibende Vorschauen: 1 Ruhig, 2 Editorial und 3 Original. Historische Angaben darunter bleiben zur Dokumentation erhalten.
+
 > Aktualisierung 27.10.2026: Auch Variante 5 (Hugo Agnes) wurde aus den Vorschauen und dem Quellprojekt entfernt. Verbleibende Vorschauen: 1 Ruhig, 2 Editorial, 3 Original und 6 Blunix. Historische Angaben darunter bleiben zur Dokumentation erhalten.
 
 > Aktualisierung 27.10.2026: Variante 4 (Hugo Arcana) wurde aus den Vorschauen und dem Quellprojekt entfernt. Die verbleibenden Vorschauen sind 1 Ruhig, 2 Editorial, 3 Original, 5 Agnes und 6 Blunix. Die frühere Nummerierung in der nachfolgenden historischen Dokumentation bleibt als Archivangabe bestehen.

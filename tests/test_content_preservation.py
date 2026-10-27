@@ -14,10 +14,10 @@ spec.loader.exec_module(guard)
 class OriginalContentGuard(unittest.TestCase):
     def test_built_content_is_identical(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            self.assertEqual(len(guard.verify()), 14)
+            self.assertEqual(len(guard.verify()), 7)
 
     def test_changed_legal_name_is_rejected(self):
-        target = ROOT / "public/christmann-heise-designs/06-Blunix/impressum/index.html"
+        target = ROOT / "public/christmann-heise-designs/03-Original/impressum/index.html"
         before = target.read_bytes()
         try:
             text = before.decode("utf-8")

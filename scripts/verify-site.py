@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["", "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz"]
-ROUTES = ["03-Original", "06-Blunix"]
+ROUTES = ["03-Original"]
 
 
 class Node:
@@ -89,11 +89,11 @@ def verify(destination="public"):
     comparison = (out / "Christmann-Heise-Designvergleich.html").read_text(encoding="utf-8")
     if (out / '03-Klar-Kobaltblau.html').exists():
         raise AssertionError('Deleted proposal is still published')
-    for index in range(4):
+    for index in range(3):
         if f'data-index="{index}"' not in comparison:
             raise AssertionError("Missing preview choice: " + str(index + 1))
     print(json.dumps({"verified_original_pages": len(checked), "original_impressum_unchanged": True,
-                      "preview_choices": 4, "checks": checked}, ensure_ascii=False, indent=2))
+                      "preview_choices": 3, "checks": checked}, ensure_ascii=False, indent=2))
     return checked
 
 

@@ -6,14 +6,13 @@ Vollständige Übergabe der Website-Arbeit aus der Unterhaltung vom 24.–26. Ok
 
 ## Aktueller Hugo-Stand
 
-Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten vier Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
+Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten drei Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
 
 1. **Ruhig**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
 2. **Editorial**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
 3. **Original / Archiv**: Hugo-Nachbau mit dem gesicherten Vortex-Design.
-6. **Hugo Blunix**: angefragtes Theme mit Originalinhalten.
 
-Alle vier verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Jede der vier Hugo-Varianten enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
+Alle drei verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Jede der vier Hugo-Varianten enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
 
 Mit Hugo 0.168.0, Dart Sass 1.106.1 und Python 3 auf dem Suchpfad:
 
@@ -24,7 +23,7 @@ python -m unittest discover -s tests
 python -m http.server 8000 --directory public
 ```
 
-Die zwei Hugo-Projekte liegen unter `hugo/`; feste Theme-Stände samt Lizenz liegen unter `hugo/themes/`. Ein GitHub-Workflow baut und prüft dieselbe Ausgabe und veröffentlicht ausschließlich `public/`.
+Das Hugo-Projekt liegen unter `hugo/`; feste Theme-Stände samt Lizenz liegen unter `hugo/themes/`. Ein GitHub-Workflow baut und prüft dieselbe Ausgabe und veröffentlicht ausschließlich `public/`.
 
 Details und bekannte Archivlücken: [Hugo-Übergabe und Sicherheitsprüfung](docs/HUGO-VARIANTEN-2026-10-26.md).
 
