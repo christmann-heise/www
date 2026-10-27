@@ -7,8 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "christmann-heise-designs/03-Original"
-VARIANTS = [("original", "03-Original", None), ("arcana", "04-Arcana", "arcana"),
-            ("agnes", "05-Agnes", "agnes"), ("blunix", "06-Blunix", "blunix")]
+VARIANTS = [("original", "03-Original", None), ("agnes", "05-Agnes", "agnes"), ("blunix", "06-Blunix", "blunix")]
 PAGES = ["", "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz"]
 LABELS = ["Startseite", "Rechtsanwältinnen", "Notarinnen", "Mediatorin", "Kontakt"]
 

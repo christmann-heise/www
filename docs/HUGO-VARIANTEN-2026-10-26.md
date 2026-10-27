@@ -1,3 +1,5 @@
+> Aktualisierung 27.10.2026: Variante 4 (Hugo Arcana) wurde aus den Vorschauen und dem Quellprojekt entfernt. Die verbleibenden Vorschauen sind 1 Ruhig, 2 Editorial, 3 Original, 5 Agnes und 6 Blunix. Die frühere Nummerierung in der nachfolgenden historischen Dokumentation bleibt als Archivangabe bestehen.
+
 # Aktueller Stand: sechs Vorschauen
 
 Der frühere Kobaltblau-Vorschlag ist gelöscht. Die Nummerierung lautet jetzt 1 Ruhig, 2 Editorial, 3 Originalnachbau, 4 Hugo Arcana, 5 Hugo Agnes, 6 Hugo Blunix. Die folgenden Abschnitte ab Erststand beschreiben den früheren Aufbau vor dieser Korrektur.
