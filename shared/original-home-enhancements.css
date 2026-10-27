@@ -1,0 +1,17 @@
+/* Homepage enhancements only: no changes to archived source copy or brand values. */
+.skip-to-content{position:absolute;top:0;left:1rem;z-index:100000;transform:translateY(-150%);background:#fff;color:#7a3674!important;padding:.75rem 1rem;border:2px solid #7a3674}
+.skip-to-content:focus{transform:translateY(0)}
+.home a:focus-visible{outline:3px solid #7a3674;outline-offset:3px}
+.home .module-header .h4{font-family:Dosis,sans-serif!important;color:#7a3674!important;font-weight:400}
+.home .module-header p.h4{margin-top:.25rem;margin-bottom:.25rem}
+.home .show-menu-btn,.home .close-menu{min-width:44px;min-height:44px}
+.home img{max-width:100%;height:auto}
+@media(max-width:767px){
+ .home .module-header{min-height:0!important;padding-top:6rem!important;padding-bottom:4rem!important}
+ .home .module-header .container{width:100%;max-width:100%;padding-left:1.25rem;padding-right:1.25rem}
+ .home .module-header h1,.home .module-header .h4{overflow-wrap:break-word}
+ .home .footer .social-text-list{display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+ .home *,.home *::before,.home *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
