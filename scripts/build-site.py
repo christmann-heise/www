@@ -18,6 +18,9 @@ def main():
     destination = (ROOT / args.destination).resolve()
     if destination == ROOT or ROOT not in destination.parents:
         raise SystemExit("Destination must be a separate directory inside the repository")
+    # Clean the generated output to prevent deleted preview variants from persisting.
+    if destination.exists():
+        shutil.rmtree(destination)
     destination.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, "scripts/build-original.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "scripts/apply-branding.py"], cwd=ROOT, check=True)

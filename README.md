@@ -10,6 +10,8 @@ Vollständige Übergabe der Website-Arbeit aus der Unterhaltung vom 24.–26. Ok
 
 **Status: Entwicklungsphase, keine Produktionsfreigabe.** Die GitHub-Pages-Adresse dient derzeit der Vorschau; die bestehende Domain und DNS-/E-Mail-Einstellungen dürfen nicht ohne ausdrückliche Freigabe umgestellt werden.
 
+Der Produktionsfreigabe-Check `python scripts/check-production-readiness.py` meldet die derzeitigen Sperrgründe und schlägt bis zur fachlichen Freigabe bewusst fehl. Die Vorschau bleibt davon unabhängig.
+
 ### Vor dem produktiven Einsatz
 
 - [ ] Die originale Gestaltung von 03 im Browser auf Desktop und Mobilgeräten prüfen und gezielt fertigstellen.
