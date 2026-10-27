@@ -12,14 +12,14 @@ class OriginalBranding(unittest.TestCase):
         self.assertIn('https://app.notara.de/js/notary-datasheet-widget.js', loader)
         self.assertIn("widgetOpenButtonColor: '#7a3674'", loader)
 
-    def test_all_six_variants_include_notara_and_original_fonts(self):
+    def test_all_three_variants_include_notara_and_original_fonts(self):
         base = ROOT / 'public/christmann-heise-designs'
         for name in ['01-Ruhig-Salbei.html','02-Editorial-Bordeaux.html']:
             page = (base / name).read_text(encoding='utf8')
             self.assertIn('original-brand:start', page)
             self.assertIn('new NotaryDatasheetWidget', page)
             self.assertIn('Dosis', page)
-        for name in ['03-Original','04-Arcana','05-Agnes','06-Blunix']:
+        for name in ['03-Original']:
             for route in ['', 'rechtsanwaeltinnen','notarinnen','mediatorin','kontakt','impressum','datenschutz']:
                 page = (base / name / route / 'index.html').read_text(encoding='utf8')
                 self.assertIn('assets/notara-public.js', page)

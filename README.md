@@ -4,18 +4,32 @@ Vollständige Übergabe der Website-Arbeit aus der Unterhaltung vom 24.–26. Ok
 
 **Hier beginnen:** [Arbeitsstand und Fortsetzung](docs/UEBERGABE-2026-10-26.md).
 
+## Entscheidung zur finalen Website (27.10.2026)
+
+**Variante 03 – Original / Archiv** ist die verbindliche Grundlage für die neue Kanzleiwebsite. Die Varianten **01 – Ruhig** und **02 – Editorial** bleiben ausschließlich als Designentwürfe und Vergleichsvorschauen erhalten. Die Varianten 04–06 werden entfernt (Pull Request #2).
+
+**Status: Original ist der kanonische Seitenaufbau auf dem GitHub-Pages-Root; weiterhin keine Freigabe für die Kanzleidomain.** Die GitHub-Pages-Adresse dient derzeit der Vorschau; die bestehende Domain und DNS-/E-Mail-Einstellungen dürfen nicht ohne ausdrückliche Freigabe umgestellt werden.
+
+Der Produktionsfreigabe-Check `python scripts/check-production-readiness.py` meldet die derzeitigen Sperrgründe und schlägt bis zur fachlichen Freigabe bewusst fehl. Die Vorschau bleibt davon unabhängig.
+
+### Vor dem produktiven Einsatz
+
+- [ ] Die originale Gestaltung von 03 im Browser auf Desktop und Mobilgeräten prüfen und gezielt fertigstellen.
+- [ ] Vollständige, aktuelle Datenschutzerklärung bereitstellen und fachlich freigeben; die archivierte Seite enthält nur einen Shortcode.
+- [ ] Impressum, Kontaktdaten, berufsrechtliche Angaben und Haftungstexte fachlich prüfen und ausdrücklich freigeben; keine automatische Textänderung.
+- [ ] Kontaktwege und öffentliche Notara-Einbindung testen, ohne vertrauliche Testdaten zu verwenden.
+- [ ] Navigation, Barrierefreiheit, Ladezeiten und Sicherheit prüfen; fehlende Archiv-Assets dokumentieren.
+- [ ] Deployment auf endgültiger Ziel-URL und Weiterleitungen gesondert vorbereiten; Domain und E-Mail-DNS bis zur Freigabe unverändert lassen.
+
 ## Aktueller Hugo-Stand
 
-Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten sechs neu nummerierte Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
+Zieltechnik ist Hugo. [Original-Website](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten drei Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
 
 1. **Ruhig**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
 2. **Editorial**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
 3. **Original / Archiv**: Hugo-Nachbau mit dem gesicherten Vortex-Design.
-4. **Hugo Arcana**: angefragtes Theme mit Originalinhalten.
-5. **Hugo Agnes**: angefragtes Theme mit Originalinhalten.
-6. **Hugo Blunix**: angefragtes Theme mit Originalinhalten.
 
-Alle sechs verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Jede der vier Hugo-Varianten enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
+Alle drei verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Der Hugo-Originalnachbau enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
 
 Mit Hugo 0.168.0, Dart Sass 1.106.1 und Python 3 auf dem Suchpfad:
 
@@ -26,7 +40,7 @@ python -m unittest discover -s tests
 python -m http.server 8000 --directory public
 ```
 
-Die vier Hugo-Projekte liegen unter `hugo/`; feste Theme-Stände samt Lizenz liegen unter `hugo/themes/`. Ein GitHub-Workflow baut und prüft dieselbe Ausgabe und veröffentlicht ausschließlich `public/`.
+Das Hugo-Projekt liegen unter `hugo/`; feste Theme-Stände samt Lizenz liegen unter `hugo/themes/`. Ein GitHub-Workflow baut und prüft dieselbe Ausgabe und veröffentlicht ausschließlich `public/`.
 
 Details und bekannte Archivlücken: [Hugo-Übergabe und Sicherheitsprüfung](docs/HUGO-VARIANTEN-2026-10-26.md).
 

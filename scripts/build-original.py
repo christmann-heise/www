@@ -100,6 +100,34 @@ def render(page, name):
         return re.sub(r"\bhref=([\"']).*?\1", 'href="' + target + '"', tag, count=1, flags=re.S)
 
     rendered = re.sub(r"<a\b[^>]*>", anchor, rendered, flags=re.I)
+    # Homepage-only accessibility and responsive improvements. Preserve every
+    # word of the archived content and the untouched archival source files.
+    if not page:
+        rendered = rendered.replace('<section class="module-header default-height">',
+                                    '<section class="module-header default-height" id="hauptinhalt">', 1)
+        rendered = rendered.replace('<body class="home ',
+                                    '<body class="home ', 1)
+        rendered = rendered.replace('<!-- Preloader-->',
+                                    '<a class="skip-to-content" href="#hauptinhalt">Zum Inhalt springen</a>\n\t\t<!-- Preloader-->', 1)
+        rendered = rendered.replace('<div class="inner-navigation">',
+                                    '<nav class="inner-navigation" aria-label="Hauptnavigation">', 1)
+        rendered = rendered.replace('</ul></div>\n\t\t\t</div>\n\t\t</header>',
+                                    '</ul></nav>\n\t\t\t</div>\n\t\t</header>', 1)
+        rendered = rendered.replace('<a class="show-menu-btn" href="#">',
+                                    '<a class="show-menu-btn" href="#" aria-label="Menü öffnen">', 1)
+        rendered = rendered.replace('<a class="close-menu" href="#">',
+                                    '<a class="close-menu" href="#" aria-label="Menü schließen">', 1)
+        rendered = rendered.replace('<div class="overlay-menu font-alt">',
+                                    '<div class="overlay-menu font-alt" aria-label="Mobile Navigation">', 1)
+        # One H1 per page; visual styling remains on the existing h4 classes.
+        rendered = rendered.replace('<h1 class="h4 font-alt">', '<p class="h4 font-alt">', 2)
+        rendered = rendered.replace('</h1><p class="h4 font-alt">', '</h1><p class="h4 font-alt">', 1)
+        rendered = rendered.replace('</h1></div></div></div></section>',
+                                    '</p></div></div></div></section>', 1)
+        rendered = rendered.replace('</h1><p class="h4 font-alt">Notarinnen',
+                                    '</p><p class="h4 font-alt">Notarinnen', 1)
+        rendered = rendered.replace('</head>',
+                                    '<link rel="stylesheet" href="assets/original-home-enhancements.css"></head>', 1)
     # Submission is intercepted before any old or preview-origin backend request.
     runtime = '<script src="' + prefix + 'assets/preview-runtime.js"></script><script src="' + prefix + 'assets/notara-public.js" defer></script>'
     rendered = rendered.replace("</head>", '<meta name="robots" content="noindex,nofollow">' + runtime + "</head>")
@@ -110,6 +138,7 @@ def render(page, name):
 
 def main():
     shutil.copyfile(ROOT / 'shared/notara-public.js', OUT / 'assets/notara-public.js')
+    shutil.copyfile(ROOT / 'shared/original-home-enhancements.css', OUT / 'assets/original-home-enhancements.css')
     # The archived map loader has no working Maps API integration in a static
     # preview. Preserve its markup; guard the optional API, without inventing a map.
     custom = OUT / assets["https://christmann-heise.de/wp-content/themes/vortex/assets/js/custom.min.js"]["file"]

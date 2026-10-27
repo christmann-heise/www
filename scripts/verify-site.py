@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["", "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz"]
-ROUTES = ["03-Original", "04-Arcana", "05-Agnes", "06-Blunix"]
+ROUTES = ["03-Original"]
 
 
 class Node:
@@ -66,6 +66,19 @@ def original_text(text):
 def verify(destination="public"):
     out = ROOT / destination / "christmann-heise-designs"
     checked = []
+    # The canonical homepage is Original, never the obsolete six-way chooser.
+    root_home = (ROOT / destination / "index.html").read_text(encoding="utf-8")
+    if "module-header" not in root_home or "Christmann &amp; Heise" not in root_home:
+        raise AssertionError("Site root is not the Original homepage")
+    if "Designvorschau · Drei Varianten" in root_home:
+        raise AssertionError("Preview chooser incorrectly installed at site root")
+    for slug in PAGES:
+        root_file = ROOT / destination / slug / "index.html"
+        if not root_file.is_file():
+            raise AssertionError("Missing canonical Original page: " + str(root_file))
+        source = ROOT / "docs/archive-original" / ((slug or "startseite-2026-01-13") + ".html.txt")
+        if original_text(root_file.read_text(encoding="utf-8")) != original_text(source.read_text(encoding="utf-8")):
+            raise AssertionError("Canonical Original text changed: " + slug)
     expected_pages = {('index.html' if not p else p + '/index.html') for p in PAGES}
     for route in ROUTES:
         actual_pages = {p.relative_to(out / route).as_posix() for p in (out / route).rglob('*.html')}
@@ -89,11 +102,11 @@ def verify(destination="public"):
     comparison = (out / "Christmann-Heise-Designvergleich.html").read_text(encoding="utf-8")
     if (out / '03-Klar-Kobaltblau.html').exists():
         raise AssertionError('Deleted proposal is still published')
-    for index in range(6):
+    for index in range(3):
         if f'data-index="{index}"' not in comparison:
             raise AssertionError("Missing preview choice: " + str(index + 1))
     print(json.dumps({"verified_original_pages": len(checked), "original_impressum_unchanged": True,
-                      "preview_choices": 6, "checks": checked}, ensure_ascii=False, indent=2))
+                      "preview_choices": 3, "checks": checked}, ensure_ascii=False, indent=2))
     return checked
 
 

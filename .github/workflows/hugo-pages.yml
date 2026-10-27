@@ -37,7 +37,7 @@ jobs:
           tar -xzf "${RUNNER_TEMP}/sass.tar.gz" -C "${RUNNER_TEMP}/sass"
           echo "${RUNNER_TEMP}/hugo" >> "${GITHUB_PATH}"
           echo "${RUNNER_TEMP}/sass/dart-sass" >> "${GITHUB_PATH}"
-      - name: Build four Hugo variants and preview index
+      - name: Build one Hugo variant and preview index
         run: python3 scripts/build-site.py
       - name: Verify all original content, including legal pages
         run: |
