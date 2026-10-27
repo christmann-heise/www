@@ -28,7 +28,7 @@ def main():
     previews.mkdir(exist_ok=True)
     for name in ("01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html", "Christmann-Heise-Designvergleich.html"):
         shutil.copyfile(ROOT / "christmann-heise-designs" / name, previews / name)
-    for site, route in (("original", "03-Original")):
+    for site, route in (("original", "03-Original"),):
         subprocess.run([args.hugo, "--source", str(ROOT / "hugo" / site),
                         "--destination", str(previews / route),
                         "--baseURL", args.base_url.rstrip("/") + "/christmann-heise-designs/" + route + "/"],

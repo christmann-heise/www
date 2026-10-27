@@ -4,6 +4,21 @@ Vollständige Übergabe der Website-Arbeit aus der Unterhaltung vom 24.–26. Ok
 
 **Hier beginnen:** [Arbeitsstand und Fortsetzung](docs/UEBERGABE-2026-10-26.md).
 
+## Entscheidung zur finalen Website (27.10.2026)
+
+**Variante 03 – Original / Archiv** ist die verbindliche Grundlage für die neue Kanzleiwebsite. Die Varianten **01 – Ruhig** und **02 – Editorial** bleiben ausschließlich als Designentwürfe und Vergleichsvorschauen erhalten. Die Varianten 04–06 werden entfernt (Pull Request #2).
+
+**Status: Entwicklungsphase, keine Produktionsfreigabe.** Die GitHub-Pages-Adresse dient derzeit der Vorschau; die bestehende Domain und DNS-/E-Mail-Einstellungen dürfen nicht ohne ausdrückliche Freigabe umgestellt werden.
+
+### Vor dem produktiven Einsatz
+
+- [ ] Die originale Gestaltung von 03 im Browser auf Desktop und Mobilgeräten prüfen und gezielt fertigstellen.
+- [ ] Vollständige, aktuelle Datenschutzerklärung bereitstellen und fachlich freigeben; die archivierte Seite enthält nur einen Shortcode.
+- [ ] Impressum, Kontaktdaten, berufsrechtliche Angaben und Haftungstexte fachlich prüfen und ausdrücklich freigeben; keine automatische Textänderung.
+- [ ] Kontaktwege und öffentliche Notara-Einbindung testen, ohne vertrauliche Testdaten zu verwenden.
+- [ ] Navigation, Barrierefreiheit, Ladezeiten und Sicherheit prüfen; fehlende Archiv-Assets dokumentieren.
+- [ ] Deployment auf endgültiger Ziel-URL und Weiterleitungen gesondert vorbereiten; Domain und E-Mail-DNS bis zur Freigabe unverändert lassen.
+
 ## Aktueller Hugo-Stand
 
 Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten drei Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
