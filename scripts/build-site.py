@@ -1,4 +1,4 @@
-"""Build the preview index and one genuine Hugo site. No network is required."""
+"""Build Original as the site root; preserve 01/02 as separate drafts."""
 import argparse
 import os
 import shutil
@@ -26,7 +26,7 @@ def main():
     subprocess.run([sys.executable, "scripts/apply-branding.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "christmann-heise-designs/build-comparison.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "scripts/prepare-hugo.py"], cwd=ROOT, check=True)
-    shutil.copyfile(ROOT / "index.html", destination / "index.html")
+    # The site root is the selected Original design, not the old chooser.
     previews = destination / "christmann-heise-designs"
     previews.mkdir(exist_ok=True)
     for name in ("01-Ruhig-Salbei.html", "02-Editorial-Bordeaux.html", "Christmann-Heise-Designvergleich.html"):
@@ -36,8 +36,12 @@ def main():
                         "--destination", str(previews / route),
                         "--baseURL", args.base_url.rstrip("/") + "/christmann-heise-designs/" + route + "/"],
                        cwd=ROOT, check=True)
+    subprocess.run([args.hugo, "--source", str(ROOT / "hugo" / "original"),
+                    "--destination", str(destination),
+                    "--baseURL", args.base_url.rstrip("/") + "/"],
+                   cwd=ROOT, check=True)
     (destination / ".nojekyll").write_text("", encoding="utf-8")
-    print("Built three previews; variant 3 rendered by Hugo")
+    print("Built Original at site root; 01/02 retained as drafts in comparison")
 
 
 if __name__ == "__main__":

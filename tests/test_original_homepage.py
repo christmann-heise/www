@@ -25,6 +25,11 @@ class OriginalHomepage(unittest.TestCase):
         self.assertIn("original-home-enhancements.css", page)
         self.assertTrue((PUBLIC / "03-Original/assets/original-home-enhancements.css").is_file())
 
+    def test_canonical_homepage_is_original(self):
+        root = (ROOT / "public/index.html").read_text(encoding="utf-8")
+        self.assertIn("module-header", root)
+        self.assertNotIn("Designvorschau · Drei Varianten", root)
+
     def test_only_three_previews_are_built(self):
         for route in ("04-Arcana", "05-Agnes", "06-Blunix"):
             self.assertFalse((PUBLIC / route).exists(), route)

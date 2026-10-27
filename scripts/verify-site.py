@@ -66,6 +66,19 @@ def original_text(text):
 def verify(destination="public"):
     out = ROOT / destination / "christmann-heise-designs"
     checked = []
+    # The canonical homepage is Original, never the obsolete six-way chooser.
+    root_home = (ROOT / destination / "index.html").read_text(encoding="utf-8")
+    if "module-header" not in root_home or "Christmann &amp; Heise" not in root_home:
+        raise AssertionError("Site root is not the Original homepage")
+    if "Designvorschau · Drei Varianten" in root_home:
+        raise AssertionError("Preview chooser incorrectly installed at site root")
+    for slug in PAGES:
+        root_file = ROOT / destination / slug / "index.html"
+        if not root_file.is_file():
+            raise AssertionError("Missing canonical Original page: " + str(root_file))
+        source = ROOT / "docs/archive-original" / ((slug or "startseite-2026-01-13") + ".html.txt")
+        if original_text(root_file.read_text(encoding="utf-8")) != original_text(source.read_text(encoding="utf-8")):
+            raise AssertionError("Canonical Original text changed: " + slug)
     expected_pages = {('index.html' if not p else p + '/index.html') for p in PAGES}
     for route in ROUTES:
         actual_pages = {p.relative_to(out / route).as_posix() for p in (out / route).rglob('*.html')}

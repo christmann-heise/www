@@ -8,7 +8,7 @@ Vollständige Übergabe der Website-Arbeit aus der Unterhaltung vom 24.–26. Ok
 
 **Variante 03 – Original / Archiv** ist die verbindliche Grundlage für die neue Kanzleiwebsite. Die Varianten **01 – Ruhig** und **02 – Editorial** bleiben ausschließlich als Designentwürfe und Vergleichsvorschauen erhalten. Die Varianten 04–06 werden entfernt (Pull Request #2).
 
-**Status: Entwicklungsphase, keine Produktionsfreigabe.** Die GitHub-Pages-Adresse dient derzeit der Vorschau; die bestehende Domain und DNS-/E-Mail-Einstellungen dürfen nicht ohne ausdrückliche Freigabe umgestellt werden.
+**Status: Original ist der kanonische Seitenaufbau auf dem GitHub-Pages-Root; weiterhin keine Freigabe für die Kanzleidomain.** Die GitHub-Pages-Adresse dient derzeit der Vorschau; die bestehende Domain und DNS-/E-Mail-Einstellungen dürfen nicht ohne ausdrückliche Freigabe umgestellt werden.
 
 Der Produktionsfreigabe-Check `python scripts/check-production-readiness.py` meldet die derzeitigen Sperrgründe und schlägt bis zur fachlichen Freigabe bewusst fehl. Die Vorschau bleibt davon unabhängig.
 
@@ -23,13 +23,13 @@ Der Produktionsfreigabe-Check `python scripts/check-production-readiness.py` mel
 
 ## Aktueller Hugo-Stand
 
-Zieltechnik ist Hugo. [Vorschauauswahl](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten drei Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
+Zieltechnik ist Hugo. [Original-Website](https://christmann-heise.github.io/www/) und [Vergleich](https://christmann-heise.github.io/www/christmann-heise-designs/Christmann-Heise-Designvergleich.html) enthalten drei Varianten. Der frühere Kobaltblau-Vorschlag ist auf Nutzerwunsch gelöscht:
 
 1. **Ruhig**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
 2. **Editorial**: bisheriger Aufbau mit Originalschriften, Originalfarben und Notara.
 3. **Original / Archiv**: Hugo-Nachbau mit dem gesicherten Vortex-Design.
 
-Alle drei verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Jede der vier Hugo-Varianten enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
+Alle drei verwenden die belegten Originalschriften Dosis und Libre Baskerville kursiv, die Originalfarben und die öffentliche Notara-Einbindung. Die fünf Originalporträts wurden aus einer erhaltenen Website-Sicherung wiederhergestellt; beide Notarinnen-Porträts haben 668 × 1000 Pixel. Der Hugo-Originalnachbau enthält genau die sieben gesicherten Originalseiten. Firmenname, Impressum, Haftungsangaben und übrige Haupttexte werden unverändert übernommen. Die Texte der Vorschauen 1–2 sind weiterhin Entwurfsstand. Die historischen Hinweise weiter unten beschreiben die damalige Übergabe, nicht den aktuellen Veröffentlichungsstand.
 
 Mit Hugo 0.168.0, Dart Sass 1.106.1 und Python 3 auf dem Suchpfad:
 
