@@ -1,3 +1,5 @@
+# Archivbelege einschließlich Zeilenenden bytegenau erhalten.
+/docs/archive-original/** -text
 # Preserve the verified upstream font files byte-for-byte on every platform.
 christmann-heise-designs/03-Original/fonts/* -text
 # The unmodified upstream license ends with an additional blank line.
