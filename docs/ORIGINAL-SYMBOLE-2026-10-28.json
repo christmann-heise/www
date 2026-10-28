@@ -7,8 +7,8 @@
   "archived_css": "christmann-heise-designs/03-Original/assets/5c3a0d53e995-linea-icons.css",
   "upstream_css": "docs/original-icons/upstream-styles.css",
   "matched_icon_mappings": 135,
-  "site_archive_font_binary_recovered": false,
-  "provenance_note": "Originalschrift aus dem offiziellen Linea-Projekt. Alle 135 Symbolzuordnungen stimmen mit dem archivierten Website-CSS ueberein. Kein binaerer Vergleich mit einer archivierten Schriftdatei der alten Website moeglich; der Wayback-Abruf war nicht erreichbar.",
+  "site_archive_font_binary_recovered": true,
+  "provenance_note": "Die Original-WOFF-Dateien der Website aus den Archivstaenden 24.02.2019 und 20.02.2026 wurden direkt abgerufen. Beide sind bytegenau identisch mit der wiederhergestellten WOFF-Datei. Der Symbolschluessel 0 zeigt das Informationssymbol, kein Paragraphenzeichen. Der vorher offene binaere Vergleich ist damit belegt.",
   "fonts": [
     {
       "file": "fonts/linea-basic-10.woff",
@@ -46,5 +46,66 @@
       "class": "icon-basic-message-multiple",
       "count": 1
     }
-  ]
+  ],
+  "site_archive_evidence": [
+    {
+      "original": "https://christmann-heise.de/wp-content/themes/vortex/assets/fonts/linea-basic-10.woff",
+      "archive": "https://web.archive.org/web/20190224074414id_/https://christmann-heise.de/wp-content/themes/vortex/assets/fonts/linea-basic-10.woff",
+      "file": "docs/archive-original/linea-basic-10-2019-02-24.woff",
+      "timestamp": "20190224074414",
+      "status": 200,
+      "type": "font/woff",
+      "bytes": 12260,
+      "sha256": "3f660cf145f6ee7ae270ea3f8e737b2353c7978c1b0de1b5d97684ddd0673db9"
+    },
+    {
+      "original": "https://christmann-heise.de/wp-content/themes/vortex/assets/fonts/linea-basic-10.woff",
+      "archive": "https://web.archive.org/web/20260220141528id_/https://christmann-heise.de/wp-content/themes/vortex/assets/fonts/linea-basic-10.woff",
+      "file": "docs/archive-original/linea-basic-10-2026-02-20.woff",
+      "timestamp": "20260220141528",
+      "status": 200,
+      "type": "font/woff",
+      "bytes": 12260,
+      "sha256": "3f660cf145f6ee7ae270ea3f8e737b2353c7978c1b0de1b5d97684ddd0673db9"
+    },
+    {
+      "original": "https://christmann-heise.de/rechtsanwaeltinnen/",
+      "archive": "https://web.archive.org/web/20190820122214id_/https://christmann-heise.de/rechtsanwaeltinnen/",
+      "file": "docs/archive-original/rechtsanwaeltinnen-2019-08-20.html.txt",
+      "timestamp": "20190820122214",
+      "status": 200,
+      "type": "text/html; charset=UTF-8",
+      "bytes": 30765,
+      "sha256": "697a76a692de27c42454233a2bd9e06aa52ccad8b45f03bf3f758c873c059487",
+      "info_icon_count": 6,
+      "legal_areas": [
+        "Wohneigentums- und Mietrecht",
+        "Erbrecht",
+        "Familienrecht",
+        "Allgemeines Zivilrecht",
+        "Betreuungsrecht",
+        "Mediation"
+      ],
+      "scope_note": "Historischer Stand von 2019 mit sechs Rechtsgebieten; nur Herkunftsbeleg, keine Inhaltsuebernahme in die heutige Website."
+    },
+    {
+      "original": "https://christmann-heise.de/wp-content/themes/vortex/assets/css/linea-icons.css",
+      "archive": "https://web.archive.org/web/20250708200628id_/https://christmann-heise.de/wp-content/themes/vortex/assets/css/linea-icons.css",
+      "file": "docs/archive-original/linea-icons-20250708.css",
+      "timestamp": "20250708200628",
+      "status": 200,
+      "type": "text/css",
+      "bytes": 8285,
+      "sha256": "56c00b6f84dfc477fc561aa4fec73df18812f0b098f098185674ed28dbcb072a"
+    }
+  ],
+  "preserved_backup_comparison": {
+    "page_sha256": "dc0e4bb7d0545f55e156f0860259ab33c21db1b5e84f5355f5cbbc05bc04cb15",
+    "info_icon_count": 5,
+    "section_matches_2025_archive": true,
+    "css_sha256": "56c00b6f84dfc477fc561aa4fec73df18812f0b098f098185674ed28dbcb072a",
+    "matched_icon_mappings": 135,
+    "saved_font_files": 0,
+    "historical_screenshot_found": false
+  }
 }
