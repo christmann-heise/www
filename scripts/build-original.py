@@ -1,6 +1,7 @@
 """Reproduce the seven archived original pages, without rewriting their content.
 
-Only hosting/resource paths and preview runtime integrations are adapted.
+Hosting/resource paths, preview runtime integrations and the explicitly requested
+symbol stylesheet are adapted.
 The archive source files remain byte-for-byte intact.
 """
 import hashlib
@@ -128,6 +129,9 @@ def render(page, name):
                                     '</p><p class="h4 font-alt">Notarinnen', 1)
         rendered = rendered.replace('</head>',
                                     '<link rel="stylesheet" href="assets/original-home-enhancements.css"></head>', 1)
+    # Explicitly requested visual departure; preserve original text and markup.
+    if page == "rechtsanwaeltinnen":
+        rendered = rendered.replace("</head>", '<link rel="stylesheet" href="' + prefix + 'assets/requested-legal-symbols.css"></head>', 1)
     # Submission is intercepted before any old or preview-origin backend request.
     runtime = '<script src="' + prefix + 'assets/preview-runtime.js"></script><script src="' + prefix + 'assets/notara-public.js" defer></script>'
     rendered = rendered.replace("</head>", '<meta name="robots" content="noindex,nofollow">' + runtime + "</head>")
@@ -138,6 +142,7 @@ def render(page, name):
 
 def main():
     shutil.copyfile(ROOT / 'shared/notara-public.js', OUT / 'assets/notara-public.js')
+    shutil.copyfile(ROOT / 'shared/requested-legal-symbols.css', OUT / 'assets/requested-legal-symbols.css')
     shutil.copyfile(ROOT / 'shared/original-home-enhancements.css', OUT / 'assets/original-home-enhancements.css')
     # The archived map loader has no working Maps API integration in a static
     # preview. Preserve its markup; guard the optional API, without inventing a map.

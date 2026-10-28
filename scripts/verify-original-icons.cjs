@@ -1,5 +1,6 @@
 /* Requires Playwright. Checks actual rendered glyph fonts, including a broken-font counterexample.
- * Default: serve public/ locally. --base-url https://example.org/ checks a deployment.
+ * Default: serve public/ locally; --directory selects another build output.
+ * --base-url https://example.org/ checks a deployment.
  * Set BROWSER_CHANNEL=msedge to use an installed Edge instead of bundled Chromium.
  * External requests and all submissions are blocked; Notara forms are never opened.
  */
@@ -12,8 +13,8 @@ const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'preview-review/linea-icons');
 const cases = [
-  { slug: 'rechtsanwaeltinnen', selector: '.icon-basic-info', count: 5 },
-  { slug: 'mediatorin', selector: '.icon-basic-message-multiple', count: 1 },
+  { slug: 'rechtsanwaeltinnen', selector: '.icon-basic-info', count: 5, font: 'Dosis', glyph: '§' },
+  { slug: 'mediatorin', selector: '.icon-basic-message-multiple', count: 1, font: 'linea-basic-10' },
 ];
 const viewports = [{ width: 1440, height: 1000 }, { width: 390, height: 844 }];
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css',
@@ -21,7 +22,9 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css',
   '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png' };
 
 function serve() {
-  const directory = path.join(root, 'public');
+  const option = process.argv.indexOf('--directory');
+  const directory = path.resolve(root, option === -1 ? 'public' : process.argv[option + 1]);
+  assert(directory.startsWith(root + path.sep), 'Build output must be inside the repository');
   return http.createServer((request, response) => {
     let file = path.resolve(directory, '.' + decodeURIComponent(new URL(request.url, 'http://localhost').pathname));
     if (!file.startsWith(directory + path.sep)) return response.writeHead(403).end();
@@ -44,9 +47,14 @@ async function inspect(page, item, url) {
       getComputedStyle(element).display === 'none' || Number(getComputedStyle(element).opacity) < 0.01));
   }
   await page.evaluate(() => document.fonts.ready);
-  const loaded = await page.evaluate(() => document.fonts.check('42px "linea-basic-10"', '0'));
+  const loaded = await page.evaluate(font => document.fonts.check(`42px "${font}"`), item.font);
   assert(loaded, 'Icon font not loaded: ' + url);
   assert.equal(await page.locator(item.selector).count(), item.count, 'Original icon count changed');
+  if (item.glyph) {
+    const glyphs = await page.locator(item.selector).evaluateAll(elements =>
+      elements.map(element => getComputedStyle(element, '::before').content));
+    assert(glyphs.every(glyph => glyph === JSON.stringify(item.glyph)), 'Requested symbol changed: ' + glyphs);
+  }
   const session = await page.context().newCDPSession(page);
   try {
     await session.send('DOM.enable');
@@ -59,7 +67,7 @@ async function inspect(page, item, url) {
       const before = node.pseudoElements?.find(element => element.pseudoType === 'before');
       assert(before?.nodeId, 'Missing original icon pseudo-element');
       const { fonts } = await session.send('CSS.getPlatformFontsForNode', { nodeId: before.nodeId });
-      assert(fonts.some(font => font.isCustomFont && font.familyName === 'linea-basic-10' && font.glyphCount > 0),
+      assert(fonts.some(font => font.isCustomFont && font.familyName === item.font && font.glyphCount > 0),
         'Icon font not used: ' + JSON.stringify(fonts));
       rendered.push(fonts);
     }
@@ -69,13 +77,14 @@ async function inspect(page, item, url) {
   } finally { await session.detach(); }
 }
 
-async function contextFor(browser, base, viewport, broken = false) {
+async function contextFor(browser, base, viewport, broken = null) {
   const context = await browser.newContext({ viewport });
   await context.route('**/*', route => {
     const request = route.request();
     const url = new URL(request.url());
     if (!['GET', 'HEAD'].includes(request.method()) || url.origin !== new URL(base).origin ||
-        (broken && url.pathname.includes('/fonts/linea-basic-10.'))) return route.abort();
+        (broken === 'original-font' && url.pathname.includes('/fonts/linea-basic-10.')) ||
+        (broken === 'paragraph-style' && url.pathname.endsWith('/assets/requested-legal-symbols.css'))) return route.abort();
     return route.continue();
   });
   return context;
@@ -97,7 +106,7 @@ async function contextFor(browser, base, viewport, broken = false) {
     }
     browser = await chromium.launch({ headless: true,
       ...(process.env.BROWSER_CHANNEL ? { channel: process.env.BROWSER_CHANNEL } : {}) });
-    const report = { base, checks: [], missing_font_rejected: false };
+    const report = { base, checks: [], missing_font_rejected: false, missing_paragraph_override_rejected: false };
     for (const viewport of viewports) {
       const context = await contextFor(browser, base, viewport);
       try {
@@ -113,16 +122,23 @@ async function contextFor(browser, base, viewport, broken = false) {
         }
       } finally { await context.close(); }
     }
-    const broken = await contextFor(browser, base, viewports[0], true);
+    const broken = await contextFor(browser, base, viewports[0], 'original-font');
     try {
-      await assert.rejects(() => broken.newPage().then(page => inspect(page, cases[0],
-        new URL('rechtsanwaeltinnen/', base).href)), /Icon font (?:not loaded|not used)/);
+      await assert.rejects(() => broken.newPage().then(page => inspect(page, cases[1],
+        new URL('mediatorin/', base).href)), /Icon font (?:not loaded|not used)/);
       report.missing_font_rejected = true;
     } finally { await broken.close(); }
+    const missingOverride = await contextFor(browser, base, viewports[0], 'paragraph-style');
+    try {
+      await assert.rejects(() => missingOverride.newPage().then(page => inspect(page, cases[0],
+        new URL('rechtsanwaeltinnen/', base).href)), /Requested symbol changed/);
+      report.missing_paragraph_override_rejected = true;
+    } finally { await missingOverride.close(); }
     fs.writeFileSync(path.join(output, 'results.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify({ base, browser_checks: report.checks.length,
       rendered_icons: report.checks.reduce((sum, check) => sum + check.count, 0),
-      missing_font_rejected: report.missing_font_rejected }));
+      missing_font_rejected: report.missing_font_rejected,
+      missing_paragraph_override_rejected: report.missing_paragraph_override_rejected }));
   } finally {
     if (browser) await browser.close();
     if (server) await new Promise(resolve => server.close(resolve));

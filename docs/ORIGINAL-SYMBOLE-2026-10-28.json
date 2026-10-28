@@ -107,5 +107,17 @@
     "matched_icon_mappings": 135,
     "saved_font_files": 0,
     "historical_screenshot_found": false
+  },
+  "requested_override": {
+    "date": "2026-10-28",
+    "page": "rechtsanwaeltinnen",
+    "selector": ".page-id-225 .icon-basic-info::before",
+    "count": 5,
+    "original_symbol": "i im Kreis",
+    "replacement": "§",
+    "font_family": "Dosis",
+    "authorization": "Ausdruecklicher Nutzerauftrag: mach ein update und ersetze das i durch §",
+    "original_reconstruction": false,
+    "unchanged": "Originaltexte, Anordnung, archivierte Quellen und Sprechblasensymbol auf Mediatorin"
   }
 }

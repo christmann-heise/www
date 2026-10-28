@@ -1,0 +1,8 @@
+/* Explicit user request, 2026-10-28: paragraph signs instead of the five info icons.
+ * This is a deliberate departure from the original; archival files stay unchanged.
+ */
+.page-id-225 .icon-basic-info::before {
+  content: "\00a7";
+  font-family: Dosis, sans-serif !important;
+  font-weight: 400 !important;
+}
