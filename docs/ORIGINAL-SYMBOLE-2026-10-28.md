@@ -12,8 +12,9 @@ Die vier unveränderten Schriftdateien stammen aus dem offiziellen
 [Linea-Iconset](https://github.com/linea-io/Linea-Iconset/tree/8ecf784f58326ae288ec0db364cd5b2ed55109c4/_basic/_ICONFONT/fonts),
 festgehalten auf Commit `8ecf784f58326ae288ec0db364cd5b2ed55109c4`.
 Alle 135 Symbolzuordnungen im zugehörigen Upstream-Stylesheet stimmen mit der
-archivierten Website-CSS-Datei überein. Es werden keine neuen Symbole entworfen
-oder andere Zeichensätze verwendet.
+archivierten Website-CSS-Datei überein. Diese Wiederherstellung verwendete den
+belegten Originalzeichensatz; die nachfolgend dokumentierte Nutzerentscheidung
+ändert anschließend ausschließlich die fünf Rechtsgebietssymbole.
 
 ### Nachprüfung: Informationssymbol oder Paragraphenzeichen?
 
@@ -31,7 +32,8 @@ SHA-256-Prüfsumme lautet
 `3f660cf145f6ee7ae270ea3f8e737b2353c7978c1b0de1b5d97684ddd0673db9`.
 Damit ist das Informationssymbol „i im Kreis“ durch die damals ausgelieferten
 Schriftdateien belegt. Ein Paragraphenzeichen ist für diese gesicherten Stände
-nicht belegt. Es wird kein anderer Zeichensatz eingesetzt und kein Symbol ersetzt.
+nicht belegt. Die spätere Änderung zu `§` beruht deshalb auf einem ausdrücklichen
+Nutzerauftrag und wird nicht als Originalrekonstruktion ausgegeben.
 
 Die unveränderten Archivantworten liegen separat unter `archive-original/`.
 Der direkte Fontvergleich ersetzt keinen historischen Screenshot einer ganzen
@@ -51,6 +53,20 @@ Quelladressen und SHA-256-Prüfsummen stehen in
 `original-icons/upstream-styles.css`, die Upstream-Lizenz unverändert neben den
 Schriftdateien als `fonts/LICENSE.txt`.
 
+## Ausdrückliche Nutzerentscheidung: § statt i
+
+Am 28.10.2026 beauftragte der Nutzer nach der Quellenklärung: „mach ein update
+und ersetze das i durch §“. Die fünf Informationssymbole auf
+`/rechtsanwaeltinnen/` werden deshalb durch das Paragraphenzeichen in Dosis
+ersetzt. Das ist eine bewusste Abweichung vom belegten Original. Texte, Farben
+und die Anordnung der Rechtsgebiete bleiben unverändert; das Sprechblasensymbol
+auf `/mediatorin/` bleibt erhalten.
+
+Die Änderung liegt separat in `shared/requested-legal-symbols.css`. Der Build
+bindet diese Datei ausschließlich auf Rechtsanwältinnen ein. Die archivierten
+HTML-, CSS- und Schriftdateien werden nicht verändert. Die Entscheidung ist
+auch in `AGENTS.md` festgehalten, damit spätere Originalabgleiche sie erhalten.
+
 ## Einbindung und Prüfung
 
 - Die archivierte Website-CSS-Datei, die HTML-Texte und die Anordnung bleiben unverändert.
@@ -60,13 +76,16 @@ Schriftdateien als `fonts/LICENSE.txt`.
 - `scripts/verify-site.py` prüft beide Ausgabeorte auf die referenzierten
   Schriftdateien und ihre belegten Prüfsummen. Ein fehlendes WOFF wird im
   Regressionstest absichtlich erzeugt und muss zurückgewiesen werden.
-- `scripts/verify-original-icons.cjs` prüft mit Playwright die tatsächlich
-  gerenderte Symbolschrift aller sechs betroffenen Symbole auf Desktop und
+- `scripts/verify-original-icons.cjs` prüft mit Playwright die fünf Paragraphenzeichen
+  in Dosis und das unveränderte Originalsymbol auf Mediatorin auf Desktop und
   Mobilgerät, jeweils auf Hauptseite und Vorschau. Externe Aufrufe und
   Formularübermittlungen sind dabei gesperrt. Ein zusätzlicher Browserlauf mit
-  absichtlich blockierter Symbolschrift muss den ursprünglichen Fehler erkennen.
+  absichtlich blockierter Symbolschrift muss den ursprünglichen Fehler erkennen;
+  eine weitere Gegenprobe ohne die gewünschte CSS-Abweichung muss die Rückkehr
+  zum Informationssymbol erkennen.
 - Browseraufruf bei vorhandenem Playwright: `node scripts/verify-original-icons.cjs`.
   Eine Veröffentlichung kann zusätzlich mit `--base-url https://christmann-heise.de/`
-  geprüft werden. Unter Windows kann `BROWSER_CHANNEL=msedge` verwendet werden.
+  geprüft werden; `--directory` wählt einen separaten lokalen Build-Ordner.
+  Unter Windows kann `BROWSER_CHANNEL=msedge` verwendet werden.
   Screenshots und Laufberichte werden lokal unter `preview-review/linea-icons/`
   abgelegt und nicht als Website veröffentlicht.
