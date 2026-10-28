@@ -15,10 +15,36 @@ Alle 135 Symbolzuordnungen im zugehörigen Upstream-Stylesheet stimmen mit der
 archivierten Website-CSS-Datei überein. Es werden keine neuen Symbole entworfen
 oder andere Zeichensätze verwendet.
 
-Ein binärer Vergleich mit der damals von der Website ausgelieferten Schriftdatei
-ist nicht belegt: Der Wayback-Abruf war bei dieser Prüfung nicht erreichbar.
-Belegt sind die archivierte Schriftreferenz, der identische Schriftname und
-sämtliche 135 identischen Symbolzuordnungen des offiziellen Projekts.
+### Nachprüfung: Informationssymbol oder Paragraphenzeichen?
+
+Die zunächst offene Frage nach der tatsächlich ausgelieferten Originalschrift
+konnte in einer weiteren Recherche geklärt werden. Über die Availability-API
+des Internet Archive wurden zwei konkrete Schriftaufnahmen gefunden und direkt
+abgerufen:
+
+- [Original-WOFF vom 24.02.2019](https://web.archive.org/web/20190224074414id_/https://christmann-heise.de/wp-content/themes/vortex/assets/fonts/linea-basic-10.woff).
+- [Original-WOFF vom 20.02.2026](https://web.archive.org/web/20260220141528id_/https://christmann-heise.de/wp-content/themes/vortex/assets/fonts/linea-basic-10.woff).
+
+Beide Antworten enthalten eine gültige WOFF-Datei mit 12.260 Bytes. Beide Dateien
+sind bytegenau identisch mit der wiederhergestellten WOFF-Datei; die gemeinsame
+SHA-256-Prüfsumme lautet
+`3f660cf145f6ee7ae270ea3f8e737b2353c7978c1b0de1b5d97684ddd0673db9`.
+Damit ist das Informationssymbol „i im Kreis“ durch die damals ausgelieferten
+Schriftdateien belegt. Ein Paragraphenzeichen ist für diese gesicherten Stände
+nicht belegt. Es wird kein anderer Zeichensatz eingesetzt und kein Symbol ersetzt.
+
+Die unveränderten Archivantworten liegen separat unter `archive-original/`.
+Der direkte Fontvergleich ersetzt keinen historischen Screenshot einer ganzen
+Seite; die Schrift- und Seitenaufnahmen stammen aus unterschiedlichen Zeitpunkten.
+
+Zusätzlich wurde die [Seitenaufnahme vom 20.08.2019](https://web.archive.org/web/20190820122214id_/https://christmann-heise.de/rechtsanwaeltinnen/)
+gesichert. Dieser ältere Stand verwendet sechs Mal `icon-basic-info`, enthält
+sechs Rechtsgebiete einschließlich Familienrecht und hat eine andere Anordnung
+als der bisher maßgebliche Seitenstand vom Dezember 2025. Diese historischen
+Inhaltsunterschiede werden ausschließlich dokumentiert und nicht in die heutige
+Website übernommen. Eine erhaltene lokale Website-Kopie bestätigt dagegen die
+fünf Informationssymbole und die Anordnung des Dezember-2025-Stands; sie enthält
+keine Schriftdateien und keinen historischen Screenshot dieses Abschnitts.
 
 Quelladressen und SHA-256-Prüfsummen stehen in
 `ORIGINAL-SYMBOLE-2026-10-28.json`. Das Upstream-Stylesheet liegt unverändert in
