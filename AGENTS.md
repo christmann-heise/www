@@ -33,6 +33,7 @@
 
 - Änderungen gelten erst als abgeschlossen, wenn sie auf GitHub im Branch `main` enthalten sind. Ein lokaler Commit, ein gepushter Arbeitsbranch oder ein offener Pull Request genügt nicht.
 - Den vorgeschriebenen Pull-Request- und Review-Weg einhalten.
+- Nach der Nutzerentscheidung vom 28.10.2026 gilt für `main`: Pull Request und erfolgreicher `build` sind Pflicht; die Zahl der erforderlichen Review-Zustimmungen ist `0`. Eine zweite Person ist für die reguläre Übernahme nicht erforderlich. Die übrigen Schutzregeln gelten weiter.
 - Nach dem Merge die Remote-Referenzen frisch abrufen und prüfen, dass lokales `main` und `origin/main` denselben Commit haben.
 - Die zur Änderung passenden Prüfungen müssen erfolgreich sein.
 - Nicht committete Änderungen gesondert prüfen und offen benennen. Fremde Änderungen weder überschreiben noch ungefragt mitnehmen.
