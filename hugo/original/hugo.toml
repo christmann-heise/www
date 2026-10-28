@@ -15,6 +15,9 @@ target = 'static'
 [[module.mounts]]
 source = '../../christmann-heise-designs/03-Original/assets'
 target = 'static/assets'
+[[module.mounts]]
+source = '../../christmann-heise-designs/03-Original/fonts'
+target = 'static/fonts'
 [[menus.main]]
 name = 'Startseite'
 pageRef = '/'
