@@ -39,7 +39,7 @@
 - Nicht committete Änderungen gesondert prüfen und offen benennen. Fremde Änderungen weder überschreiben noch ungefragt mitnehmen.
 - Bei einer beauftragten Veröffentlichung zusätzlich das Deployment und die erreichbare Website prüfen. Ein Merge allein belegt keine erfolgreiche Veröffentlichung.
 - Im Abschlussbericht den Commit auf `main`, den Synchronisationsstatus und die relevanten Prüfergebnisse nennen.
-- Fehlen Review, Merge, Synchronisation oder Veröffentlichung, den tatsächlichen Stand benennen, etwa „zur Freigabe vorbereitet“ oder „wartet auf Review“. Den Auftrag nicht als fertig melden.
+- Sind erforderliche Reviews, der Merge, die Synchronisation oder eine beauftragte Veröffentlichung noch offen, den tatsächlichen Stand benennen, etwa „zur Freigabe vorbereitet“ oder „wartet auf Review“. Den Auftrag nicht als fertig melden.
 
 ## Verbindliche Nutzeranweisungen vom 26.10.2026
 
