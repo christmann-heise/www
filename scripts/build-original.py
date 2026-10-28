@@ -1,4 +1,4 @@
-"""Reproduce the seven archived original pages, without rewriting their content.
+"""Preserve archived pages except for the explicitly requested contact-form removal.
 
 Hosting/resource paths, preview runtime integrations and the explicitly requested
 symbol stylesheet are adapted.
@@ -38,6 +38,10 @@ def resource(url, prefix):
 
 def render(page, name):
     source = (SOURCE / (name + ".html.txt")).read_bytes().decode("utf-8")
+    if page == "kontakt":
+        # Explicit user request: remove obsolete WordPress form, retain contact details.
+        source = re.sub(r'<div class="wpcf7(?:\s[^"]*)?"[^>]*>[\s\S]*?</form>\s*</div>',
+                        "", source, count=1)
     prefix = "../" if page else ""
 
     def script(match):
@@ -132,8 +136,8 @@ def render(page, name):
     # Explicitly requested visual departure; preserve original text and markup.
     if page == "rechtsanwaeltinnen":
         rendered = rendered.replace("</head>", '<link rel="stylesheet" href="' + prefix + 'assets/requested-legal-symbols.css"></head>', 1)
-    # Submission is intercepted before any old or preview-origin backend request.
-    runtime = '<script src="' + prefix + 'assets/preview-runtime.js"></script><script src="' + prefix + 'assets/notara-public.js" defer></script>'
+    # Keep the public Notara loader; never ship a document-wide submit blocker.
+    runtime = '<script src="' + prefix + 'assets/notara-public.js" defer></script>'
     rendered = rendered.replace("</head>", '<meta name="robots" content="noindex,nofollow">' + runtime + "</head>")
     target = OUT / page / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)

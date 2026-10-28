@@ -15,10 +15,12 @@ class Node:
     def __init__(self, tag="", attrs=()):
         self.tag, self.attrs, self.children = tag, dict(attrs), []
 
-    def text(self):
+    def text(self, excluded_class=None):
         if self.tag in ("script", "style"):
             return ""
-        return "".join(c if isinstance(c, str) else c.text() for c in self.children)
+        if excluded_class and excluded_class in self.attrs.get("class", "").split():
+            return ""
+        return "".join(c if isinstance(c, str) else c.text(excluded_class) for c in self.children)
 
     def find_class(self, name):
         result = [self] if name in self.attrs.get("class", "").split() else []
@@ -58,10 +60,11 @@ class Document(HTMLParser):
         self.stack[-1].children.append(data)
 
 
-def original_text(text):
+def original_text(text, *, without_legacy_contact_form=False):
     doc = Document(text).root
     nodes = doc.find_class("module-header") + doc.find_class("fw-page-builder-content")
-    return re.sub(r"\s+", " ", " ".join(n.text() for n in nodes)).strip()
+    excluded = "wpcf7" if without_legacy_contact_form else None
+    return re.sub(r"\s+", " ", " ".join(n.text(excluded) for n in nodes)).strip()
 
 
 def verify_icon_fonts(destination="public"):
@@ -82,8 +85,27 @@ def verify_icon_fonts(destination="public"):
                 raise AssertionError("Original icon font changed: " + str(font))
 
 
+def verify_form_runtime(destination="public"):
+    """Prevent the preview-wide submit interceptor from reaching publication."""
+    for base in (ROOT / destination, ROOT / destination / "christmann-heise-designs/03-Original"):
+        if (base / "assets/preview-runtime.js").exists():
+            raise AssertionError("Preview form blocker shipped: " + str(base))
+        for slug in PAGES:
+            page = base / slug / "index.html"
+            scripts = re.findall(r'<script\b[^>]*\bsrc\s*=\s*[\"\']([^\"\']+)',
+                                 page.read_text(encoding="utf-8"), re.I)
+            names = {Path(urlsplit(src).path).name for src in scripts}
+            if "preview-runtime.js" in names:
+                raise AssertionError("Preview form blocker loaded: " + str(page))
+            if "notara-public.js" not in names:
+                raise AssertionError("Public Notara loader missing: " + str(page))
+            if slug == "kontakt" and re.search(r'<form\b', page.read_text(encoding="utf-8"), re.I):
+                raise AssertionError("WordPress contact form still present: " + str(page))
+
+
 def verify(destination="public"):
     verify_icon_fonts(destination)
+    verify_form_runtime(destination)
     out = ROOT / destination / "christmann-heise-designs"
     checked = []
     # The canonical homepage is Original, never the obsolete six-way chooser.
@@ -97,7 +119,7 @@ def verify(destination="public"):
         if not root_file.is_file():
             raise AssertionError("Missing canonical Original page: " + str(root_file))
         source = ROOT / "docs/archive-original" / ((slug or "startseite-2026-01-13") + ".html.txt")
-        if original_text(root_file.read_text(encoding="utf-8")) != original_text(source.read_text(encoding="utf-8")):
+        if original_text(root_file.read_text(encoding="utf-8"), without_legacy_contact_form=slug == "kontakt") != original_text(source.read_text(encoding="utf-8"), without_legacy_contact_form=slug == "kontakt"):
             raise AssertionError("Canonical Original text changed: " + slug)
     expected_pages = {('index.html' if not p else p + '/index.html') for p in PAGES}
     for route in ROUTES:
@@ -106,12 +128,12 @@ def verify(destination="public"):
             raise AssertionError('Unexpected or missing pages: ' + route + ' ' + str(sorted(actual_pages ^ expected_pages)))
     for page in PAGES:
         source = ROOT / "docs/archive-original" / ((page or "startseite-2026-01-13") + ".html.txt")
-        expected = original_text(source.read_text(encoding="utf-8"))
+        expected = original_text(source.read_text(encoding="utf-8"), without_legacy_contact_form=page == "kontakt")
         if not expected:
             raise AssertionError("No source content: " + page)
         for route in ROUTES:
             target = out / route / page / "index.html"
-            actual = original_text(target.read_text(encoding="utf-8"))
+            actual = original_text(target.read_text(encoding="utf-8"), without_legacy_contact_form=page == "kontakt")
             if actual != expected:
                 raise AssertionError(f"Original text changed: {route}/{page}")
             checked.append({"route": route + "/" + page, "content_sha256": hashlib.sha256(actual.encode()).hexdigest()})
