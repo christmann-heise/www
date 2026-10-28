@@ -4,6 +4,7 @@ import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["", "rechtsanwaeltinnen", "notarinnen", "mediatorin", "kontakt", "impressum", "datenschutz"]
@@ -63,7 +64,26 @@ def original_text(text):
     return re.sub(r"\s+", " ", " ".join(n.text() for n in nodes)).strip()
 
 
+def verify_icon_fonts(destination="public"):
+    """Reject the missing symbol font that previously rendered literal zeros."""
+    evidence = json.loads((ROOT / "docs/ORIGINAL-SYMBOLE-2026-10-28.json").read_text(encoding="utf-8"))
+    for base in (ROOT / destination, ROOT / destination / "christmann-heise-designs/03-Original"):
+        css_path = base / "assets/5c3a0d53e995-linea-icons.css"
+        css = css_path.read_text(encoding="utf-8")
+        referenced = {
+            (css_path.parent / urlsplit(url).path).resolve()
+            for url in re.findall(r'url\([\"\']?([^\)\"\']+)', css)
+        }
+        for item in evidence["fonts"]:
+            font = base / item["file"]
+            if font.resolve() not in referenced or not font.is_file():
+                raise AssertionError("Missing original icon font: " + str(font))
+            if hashlib.sha256(font.read_bytes()).hexdigest() != item["sha256"]:
+                raise AssertionError("Original icon font changed: " + str(font))
+
+
 def verify(destination="public"):
+    verify_icon_fonts(destination)
     out = ROOT / destination / "christmann-heise-designs"
     checked = []
     # The canonical homepage is Original, never the obsolete six-way chooser.

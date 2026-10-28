@@ -29,6 +29,7 @@ def prepare():
         config += "[params.footer.contact_form]\nenabled = false\n"
         config += "[[module.mounts]]\nsource = 'static'\ntarget = 'static'\n"
         config += "[[module.mounts]]\nsource = '../../christmann-heise-designs/03-Original/assets'\ntarget = 'static/assets'\n"
+        config += "[[module.mounts]]\nsource = '../../christmann-heise-designs/03-Original/fonts'\ntarget = 'static/fonts'\n"
         for weight, (slug, label) in enumerate(zip(PAGES, LABELS)):
             config += f"[[menus.main]]\nname = '{label}'\npageRef = '/{slug}'\nweight = {weight + 1}\n"
         (directory / "hugo.toml").write_text(config, encoding="utf-8", newline="\n")

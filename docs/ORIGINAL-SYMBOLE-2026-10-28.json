@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-28",
+  "font_family": "linea-basic-10",
+  "upstream_repository": "https://github.com/linea-io/Linea-Iconset",
+  "upstream_commit": "8ecf784f58326ae288ec0db364cd5b2ed55109c4",
+  "license": "CC0-1.0 (upstream LICENSE copied unchanged)",
+  "archived_css": "christmann-heise-designs/03-Original/assets/5c3a0d53e995-linea-icons.css",
+  "upstream_css": "docs/original-icons/upstream-styles.css",
+  "matched_icon_mappings": 135,
+  "site_archive_font_binary_recovered": false,
+  "provenance_note": "Originalschrift aus dem offiziellen Linea-Projekt. Alle 135 Symbolzuordnungen stimmen mit dem archivierten Website-CSS ueberein. Kein binaerer Vergleich mit einer archivierten Schriftdatei der alten Website moeglich; der Wayback-Abruf war nicht erreichbar.",
+  "fonts": [
+    {
+      "file": "fonts/linea-basic-10.woff",
+      "source": "https://raw.githubusercontent.com/linea-io/Linea-Iconset/8ecf784f58326ae288ec0db364cd5b2ed55109c4/_basic/_ICONFONT/fonts/linea-basic-10.woff",
+      "bytes": 12260,
+      "sha256": "3f660cf145f6ee7ae270ea3f8e737b2353c7978c1b0de1b5d97684ddd0673db9"
+    },
+    {
+      "file": "fonts/linea-basic-10.ttf",
+      "source": "https://raw.githubusercontent.com/linea-io/Linea-Iconset/8ecf784f58326ae288ec0db364cd5b2ed55109c4/_basic/_ICONFONT/fonts/linea-basic-10.ttf",
+      "bytes": 21284,
+      "sha256": "aad9aaf19ba546a9a319ab0b6bfe32757acf1e2b6bbc146294ef515b341a49d0"
+    },
+    {
+      "file": "fonts/linea-basic-10.eot",
+      "source": "https://raw.githubusercontent.com/linea-io/Linea-Iconset/8ecf784f58326ae288ec0db364cd5b2ed55109c4/_basic/_ICONFONT/fonts/linea-basic-10.eot",
+      "bytes": 21478,
+      "sha256": "a4d53d080b773e84db76f771517d0d87a44e36376b831d77908574a816f3d2e4"
+    },
+    {
+      "file": "fonts/linea-basic-10.svg",
+      "source": "https://raw.githubusercontent.com/linea-io/Linea-Iconset/8ecf784f58326ae288ec0db364cd5b2ed55109c4/_basic/_ICONFONT/fonts/linea-basic-10.svg",
+      "bytes": 47869,
+      "sha256": "253997c73786a08e68f12d23ba17037c234558ec43230ce72a4f40fcbc7082e8"
+    }
+  ],
+  "uses": [
+    {
+      "page": "rechtsanwaeltinnen",
+      "class": "icon-basic-info",
+      "count": 5
+    },
+    {
+      "page": "mediatorin",
+      "class": "icon-basic-message-multiple",
+      "count": 1
+    }
+  ]
+}
