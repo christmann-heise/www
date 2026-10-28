@@ -1,5 +1,46 @@
 # Projektvorgaben
 
+## Arbeitsumgebung, nächste Schritte, Freigaben und Abschluss
+
+### Bearbeitung ausschließlich über Work
+
+- Dieses Repository und die Website werden ausschließlich in ChatGPT Work bearbeitet. Eine ausdrückliche Ausnahme kann nur der Nutzer erteilen.
+- Wird ein Bearbeitungsauftrag in Codex geöffnet, auf diese Vorgabe hinweisen und einen konkreten Übergabetext für Work mit dem empfohlenen nächsten Schritt bereitstellen. Ohne ausdrückliche Ausnahme keine Dateien ändern und keine Commits, Pushes oder Veröffentlichungen ausführen.
+- Diese Regel ist eine Arbeitsanweisung. Sie ersetzt keine technische Zugriffskontrolle.
+
+### GitHub-main als verbindlicher Ausgangsstand
+
+- Vor jeder fachlichen Bearbeitung und beim Wiederaufnehmen eines Auftrags den vorgesehenen Remote und Zielbranch prüfen, den aktuellen GitHub-Stand von `main` erfolgreich abrufen und die betroffenen Dateien sowie Projektvorgaben dieses Stands lesen.
+- GitHub-`main` ist der verbindliche Ausgangsstand. Lokale Dateien, zwischengespeicherte Remote-Referenzen, alte Arbeitsbranches und frühere Chat-Aussagen dürfen nicht ungeprüft als aktueller Projektstand gelten.
+- In einer lokalen Arbeitskopie vor dem Wechsel oder Abgleich nicht committete Änderungen und zusätzliche lokale Commits prüfen. Ein sauberes lokales `main` nur per Fast-forward auf den frisch abgerufenen Stand bringen; neue Arbeitsbranches von diesem Stand aus anlegen.
+- Lokale Änderungen können technisch neuer sein, gelten aber bis zur geprüften Übernahme in GitHub-`main` als separate, noch nicht abgeschlossene Arbeit. Sie weder verlieren noch ungefragt verwerfen, überschreiben oder mit einem anderen Auftrag vermischen.
+- Ist der aktuelle GitHub-Stand nicht abrufbar oder gibt es widersprüchliche lokale Änderungen, die davon abhängige Bearbeitung zurückstellen, den konkreten Unterschied benennen und den nächsten Lösungsschritt mit Empfehlung vorlegen. Keinen veralteten Stand als aktuell ausgeben.
+- Vor dem Merge erneut auf Änderungen an GitHub-`main` prüfen und die Integration sowie erforderliche Prüfungen auf die aktuelle Basis bringen. Nach dem Merge den Gleichstand erneut durch frischen Abruf belegen.
+
+### Geführte nächste Schritte und schrittweise Freigaben
+
+- Bei Fragen die Frage konkret beantworten und anschließend den besten nächsten Schritt vorschlagen. Bei Änderungswünschen die bereits beauftragten Schritte ausführen und danach den nächsten erforderlichen Schritt vorschlagen.
+- Nicht bei bloßer Zustimmung oder einer Aussage wie „Ja, stimmt“ oder „Ich habe nichts geändert“ stehen bleiben. Aus dem aktuellen Stand eine konkrete Handlung ableiten und erklären, was sie bewirkt.
+- Den Nutzer durch die nächsten Schritte führen: sinnvolle Auswahlmöglichkeiten anbieten, eine davon klar empfehlen und die Empfehlung kurz begründen. Wenn verfügbar, native Auswahlmöglichkeiten verwenden; andernfalls nummerierte Optionen. Keine künstlichen Alternativen erfinden, wenn es nur einen sinnvollen nächsten Schritt gibt.
+- Bei erforderlichen Entscheidungen oder Freigaben jeweils nur den nächsten konkreten Schritt vorlegen. Keine pauschalen Sammelfreigaben für noch unklare Folgeschritte verlangen.
+- Nur sachlich notwendige Entscheidungen abfragen. Bereits erteilte Aufträge und Freigaben innerhalb ihres Umfangs ausführen, ohne erneut um Zustimmung zu bitten. Eine Frage allein ist keine Freigabe für eine externe Änderung.
+- Unabhängige, bereits beauftragte Vorarbeiten und Prüfungen vor einer Freigabe vollständig erledigen. Der Nutzer soll ein konkretes, prüfbares Ergebnis freigeben können.
+- Nach einer Entscheidung den freigegebenen Schritt ausführen, das Ergebnis prüfen und die nächste erforderliche Entscheidung mit Auswahl und Empfehlung vorlegen.
+- Ausbleibende Antworten und vorausgewählte Optionen gelten nicht als Freigabe.
+- GitHub-Reviews, Branch-Schutz und andere vorgeschriebene Freigaben dürfen nicht umgangen oder durch eine Chat-Freigabe ersetzt werden.
+
+### Wann ein Auftrag abgeschlossen ist
+
+- Änderungen gelten erst als abgeschlossen, wenn sie auf GitHub im Branch `main` enthalten sind. Ein lokaler Commit, ein gepushter Arbeitsbranch oder ein offener Pull Request genügt nicht.
+- Den vorgeschriebenen Pull-Request- und Review-Weg einhalten.
+- Nach der Nutzerentscheidung vom 28.10.2026 gilt für `main`: Pull Request und erfolgreicher `build` sind Pflicht; die Zahl der erforderlichen Review-Zustimmungen ist `0`. Eine zweite Person ist für die reguläre Übernahme nicht erforderlich. Die übrigen Schutzregeln gelten weiter.
+- Nach dem Merge die Remote-Referenzen frisch abrufen und prüfen, dass lokales `main` und `origin/main` denselben Commit haben.
+- Die zur Änderung passenden Prüfungen müssen erfolgreich sein.
+- Nicht committete Änderungen gesondert prüfen und offen benennen. Fremde Änderungen weder überschreiben noch ungefragt mitnehmen.
+- Bei einer beauftragten Veröffentlichung zusätzlich das Deployment und die erreichbare Website prüfen. Ein Merge allein belegt keine erfolgreiche Veröffentlichung.
+- Im Abschlussbericht den Commit auf `main`, den Synchronisationsstatus und die relevanten Prüfergebnisse nennen.
+- Sind erforderliche Reviews, der Merge, die Synchronisation oder eine beauftragte Veröffentlichung noch offen, den tatsächlichen Stand benennen, etwa „zur Freigabe vorbereitet“ oder „wartet auf Review“. Den Auftrag nicht als fertig melden.
+
 ## Verbindliche Nutzeranweisungen vom 26.10.2026
 
 - Inhaltlich und bei den Seiten bei der Wahrheit bleiben: keine Erfindungen, keine neuen Ideen.
